@@ -17,8 +17,10 @@
       --soft: #eee9e1;
       --max: 1100px;
     }
+
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -26,8 +28,11 @@
       background: var(--paper);
       line-height: 1.55;
     }
+
     a { color: inherit; }
+    button, select { font: inherit; }
     .wrap { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+
     header {
       position: sticky;
       top: 0;
@@ -36,6 +41,7 @@
       border-bottom: 1px solid var(--line);
       backdrop-filter: blur(10px);
     }
+
     .topbar {
       min-height: 70px;
       display: flex;
@@ -43,29 +49,64 @@
       justify-content: space-between;
       gap: 20px;
     }
+
     .brand {
       font-weight: 800;
       letter-spacing: -.03em;
       font-size: 1.3rem;
       text-decoration: none;
     }
-    nav { display: flex; align-items: center; gap: 20px; }
-    nav a { text-decoration: none; font-size: .95rem; }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: .95rem;
+    }
+
+    .language-tools {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      direction: ltr;
+      flex-shrink: 0;
+    }
+
+    .english-reset,
     .language {
       border: 1px solid var(--line);
       background: var(--white);
       border-radius: 8px;
       padding: 8px 10px;
-      font: inherit;
       color: var(--ink);
     }
+
+    .english-reset {
+      border-color: var(--ink);
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .english-reset:hover,
+    .english-reset:focus-visible {
+      background: var(--ink);
+      color: var(--white);
+    }
+
     .hero { padding: 88px 0 74px; }
+
     .hero-grid {
       display: grid;
       grid-template-columns: 1.25fr .75fr;
       gap: 56px;
       align-items: center;
     }
+
     .eyebrow {
       text-transform: uppercase;
       letter-spacing: .15em;
@@ -74,6 +115,7 @@
       color: var(--accent-dark);
       margin: 0 0 16px;
     }
+
     h1 {
       font-size: clamp(2.7rem, 7vw, 5.7rem);
       line-height: .98;
@@ -81,13 +123,16 @@
       margin: 0;
       max-width: 10ch;
     }
+
     .lead {
       max-width: 620px;
       font-size: 1.14rem;
       color: var(--muted);
       margin: 24px 0 30px;
     }
+
     .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
     .btn {
       display: inline-block;
       text-decoration: none;
@@ -96,24 +141,36 @@
       font-weight: 750;
       border: 1px solid var(--ink);
     }
+
     .btn.primary { background: var(--ink); color: var(--white); }
     .btn.secondary { background: transparent; }
     .trust { margin-top: 22px; color: var(--muted); font-size: .94rem; }
+
     .swatches {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
       min-height: 380px;
     }
+
     .swatch { border-radius: 14px; border: 1px solid rgba(0,0,0,.08); }
     .swatch:nth-child(1) { background: #efe3ce; }
     .swatch:nth-child(2) { background: #d98f39; }
     .swatch:nth-child(3) { background: #575d53; }
     .swatch:nth-child(4) { background: #f9f8f3; }
+
     section { padding: 72px 0; border-top: 1px solid var(--line); }
     .section-head { max-width: 720px; margin-bottom: 34px; }
-    h2 { font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -.045em; line-height: 1.02; margin: 0 0 12px; }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: -.045em;
+      line-height: 1.02;
+      margin: 0 0 12px;
+    }
+
     .section-head p, .copy { color: var(--muted); margin: 0; }
+
     .services {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -121,21 +178,32 @@
       background: var(--line);
       border: 1px solid var(--line);
     }
+
     .service { background: var(--white); padding: 24px; min-height: 138px; }
     .service strong { display: block; margin-bottom: 7px; }
     .service span { color: var(--muted); font-size: .95rem; }
+
     .process {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
       margin-top: 34px;
     }
+
     .step { padding: 26px; background: var(--soft); border-radius: 12px; }
     .number { font-size: .8rem; font-weight: 800; color: var(--accent-dark); }
     .step h3 { margin: 8px 0; font-size: 1.3rem; }
     .step p { margin: 0; color: var(--muted); }
-    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; align-items: start; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 50px;
+      align-items: start;
+    }
+
     .about-note { font-size: 1.35rem; line-height: 1.45; margin: 0; }
+
     .contact-box {
       background: var(--ink);
       color: var(--white);
@@ -146,24 +214,36 @@
       gap: 30px;
       align-items: end;
     }
+
     .contact-box p { color: #d5d5d5; margin-bottom: 0; }
+
     .contact-detail {
       border: 1px solid #4b4b4b;
       border-radius: 10px;
       padding: 17px;
       color: #ededed;
     }
+
     .contact-detail small { display: block; color: #ababab; margin-bottom: 4px; }
     footer { padding: 28px 0 38px; color: var(--muted); font-size: .9rem; }
+
     [dir="rtl"] body { font-family: Tahoma, Arial, sans-serif; }
     [dir="rtl"] .eyebrow { letter-spacing: 0; }
+
     @media (max-width: 800px) {
-      nav a { display: none; }
+      nav { gap: 8px; }
+      nav > a { display: none; }
       .hero { padding-top: 58px; }
       .hero-grid, .about-grid, .contact-box { grid-template-columns: 1fr; }
       .swatches { min-height: 250px; }
       .services, .process { grid-template-columns: 1fr; }
       h1 { max-width: 12ch; }
+    }
+
+    @media (max-width: 480px) {
+      .topbar { gap: 10px; }
+      .brand { font-size: 1.1rem; }
+      .english-reset, .language { padding: 7px 8px; font-size: .9rem; }
     }
   </style>
 </head>
@@ -176,14 +256,26 @@
         <a href="#process" data-i18n="navProcess">How it works</a>
         <a href="#about" data-i18n="navAbout">About</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
-        <select id="language" class="language" aria-label="Language">
-          <option value="en">English</option>
-          <option value="ar">العربية</option>
-          <option value="pl">Polski</option>
-          <option value="lt">Lietuvių</option>
-          <option value="ro">Română</option>
-          <option value="uk">Українська</option>
-        </select>
+
+        <div class="language-tools" aria-label="Language controls">
+          <button
+            id="english-reset"
+            class="english-reset"
+            type="button"
+            lang="en"
+            dir="ltr"
+            aria-label="Switch website back to English"
+          >English</button>
+
+          <select id="language" class="language" aria-label="Choose language">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+            <option value="pl">Polski</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ro">Română</option>
+            <option value="uk">Українська</option>
+          </select>
+        </div>
       </nav>
     </div>
   </header>
@@ -201,8 +293,12 @@
           </div>
           <p class="trust" data-i18n="trust">Neat preparation · Careful masking · Clean finish</p>
         </div>
+
         <div class="swatches" aria-hidden="true">
-          <div class="swatch"></div><div class="swatch"></div><div class="swatch"></div><div class="swatch"></div>
+          <div class="swatch"></div>
+          <div class="swatch"></div>
+          <div class="swatch"></div>
+          <div class="swatch"></div>
         </div>
       </div>
     </section>
@@ -213,6 +309,7 @@
           <h2 data-i18n="servicesTitle">Painting without the fuss.</h2>
           <p data-i18n="servicesLead">Practical painting and decorating, with the preparation done properly before the first coat goes on.</p>
         </div>
+
         <div class="services">
           <div class="service"><strong data-i18n="s1t">Interior painting</strong><span data-i18n="s1d">Rooms, halls, stairs, kitchens and living spaces.</span></div>
           <div class="service"><strong data-i18n="s2t">Exterior painting</strong><span data-i18n="s2d">Walls and exterior surfaces prepared for a durable finish.</span></div>
@@ -230,6 +327,7 @@
           <h2 data-i18n="processTitle">A good finish starts before the paint.</h2>
           <p data-i18n="processLead">The simple rule: prepare the surface first, then use the right product and apply it cleanly.</p>
         </div>
+
         <div class="process">
           <article class="step"><span class="number">01</span><h3 data-i18n="p1t">Prepare</h3><p data-i18n="p1d">Fill, sand, clean and protect the surrounding area.</p></article>
           <article class="step"><span class="number">02</span><h3 data-i18n="p2t">Prime</h3><p data-i18n="p2d">Use the right primer where the surface needs it.</p></article>
@@ -256,6 +354,7 @@
             <h2 data-i18n="contactTitle">Need a room, house or rental refreshed?</h2>
             <p data-i18n="contactCopy">Call or WhatsApp Ahmed. Sending a few photos of the work and your location helps with a quick first estimate.</p>
           </div>
+
           <div class="contact-detail">
             <small data-i18n="contactLabel">Phone / WhatsApp</small>
             <strong data-i18n="contactPlaceholder">Ahmed’s number to be added</strong>
@@ -266,7 +365,10 @@
   </main>
 
   <footer>
-    <div class="wrap"><span>© <span id="year"></span> Painter.</span> <span data-i18n="footer">Painting & decorating.</span></div>
+    <div class="wrap">
+      <span>© <span id="year"></span> Painter.</span>
+      <span data-i18n="footer">Painting & decorating.</span>
+    </div>
   </footer>
 
   <script>
@@ -280,6 +382,7 @@
         aboutEyebrow:'About Ahmed', aboutTitle:'Simple, tidy, reliable.', aboutCopy:'Ahmed takes a straightforward approach: protect the space, prepare properly, paint carefully and leave the job tidy.',
         contactEyebrow:'Get a quote', contactTitle:'Need a room, house or rental refreshed?', contactCopy:'Call or WhatsApp Ahmed. Sending a few photos of the work and your location helps with a quick first estimate.', contactLabel:'Phone / WhatsApp', contactPlaceholder:'Ahmed’s number to be added', footer:'Painting & decorating.'
       },
+
       ar: {
         navServices:'الخدمات', navProcess:'طريقة العمل', navAbout:'عن أحمد', navContact:'التواصل',
         eyebrow:'دهان وديكور', heroTitle:'عمل نظيف. خدمة واضحة. تشطيب يدوم.', heroLead:'دهان داخلي وخارجي للمنازل والعقارات المؤجرة والمساحات التجارية الصغيرة.', quote:'اطلب عرض سعر', seeServices:'شاهد الخدمات', trust:'تحضير مرتب · تغطية دقيقة · تشطيب نظيف',
@@ -289,6 +392,7 @@
         aboutEyebrow:'عن أحمد', aboutTitle:'بسيط، مرتب، موثوق.', aboutCopy:'يتبع أحمد أسلوباً واضحاً: حماية المكان، التحضير الجيد، الدهان بعناية وترك الموقع نظيفاً.',
         contactEyebrow:'اطلب عرض سعر', contactTitle:'هل تحتاج إلى تجديد غرفة أو منزل أو عقار مؤجر؟', contactCopy:'اتصل بأحمد أو راسله عبر واتساب. إرسال بعض الصور وموقع العمل يساعد في إعطاء تقدير أولي سريع.', contactLabel:'الهاتف / واتساب', contactPlaceholder:'سيتم إضافة رقم أحمد', footer:'دهان وديكور.'
       },
+
       pl: {
         navServices:'Usługi', navProcess:'Jak pracuję', navAbout:'O mnie', navContact:'Kontakt',
         eyebrow:'Malowanie i dekorowanie', heroTitle:'Czysta praca. Prosta obsługa. Trwałe wykończenie.', heroLead:'Malowanie wnętrz i elewacji w domach, mieszkaniach na wynajem i małych lokalach użytkowych.', quote:'Poproś o wycenę', seeServices:'Zobacz usługi', trust:'Dokładne przygotowanie · Staranna ochrona · Czyste wykończenie',
@@ -298,6 +402,7 @@
         aboutEyebrow:'O Ahmedzie', aboutTitle:'Prosto, czysto, solidnie.', aboutCopy:'Ahmed pracuje według prostej zasady: zabezpieczyć miejsce, dobrze przygotować powierzchnię, starannie pomalować i zostawić porządek.',
         contactEyebrow:'Poproś o wycenę', contactTitle:'Chcesz odświeżyć pokój, dom lub mieszkanie na wynajem?', contactCopy:'Zadzwoń lub napisz do Ahmeda na WhatsApp. Kilka zdjęć i lokalizacja pomogą szybko przygotować wstępną wycenę.', contactLabel:'Telefon / WhatsApp', contactPlaceholder:'Numer Ahmeda do dodania', footer:'Malowanie i dekorowanie.'
       },
+
       lt: {
         navServices:'Paslaugos', navProcess:'Kaip dirbama', navAbout:'Apie', navContact:'Kontaktai',
         eyebrow:'Dažymas ir apdaila', heroTitle:'Tvarkingas darbas. Paprastas bendravimas. Ilgaamžė apdaila.', heroLead:'Vidaus ir lauko dažymas namams, nuomojamam būstui ir nedidelėms komercinėms patalpoms.', quote:'Gauti pasiūlymą', seeServices:'Žiūrėti paslaugas', trust:'Tvarkingas paruošimas · Kruopšti apsauga · Švari apdaila',
@@ -307,6 +412,7 @@
         aboutEyebrow:'Apie Ahmedą', aboutTitle:'Paprastai, tvarkingai, patikimai.', aboutCopy:'Ahmedas dirba paprastai: apsaugo patalpą, tinkamai paruošia paviršius, kruopščiai nudažo ir palieka tvarką.',
         contactEyebrow:'Gauti pasiūlymą', contactTitle:'Reikia atnaujinti kambarį, namą ar nuomojamą būstą?', contactCopy:'Paskambinkite Ahmedui arba parašykite per WhatsApp. Kelios darbo nuotraukos ir vieta padės greitai pateikti pirminį įvertinimą.', contactLabel:'Telefonas / WhatsApp', contactPlaceholder:'Ahmedo numeris bus pridėtas', footer:'Dažymas ir apdaila.'
       },
+
       ro: {
         navServices:'Servicii', navProcess:'Cum lucrez', navAbout:'Despre', navContact:'Contact',
         eyebrow:'Zugrăveli și finisaje', heroTitle:'Lucru curat. Serviciu simplu. Un finisaj care rezistă.', heroLead:'Zugrăveli interioare și exterioare pentru locuințe, proprietăți închiriate și spații comerciale mici.', quote:'Cere o ofertă', seeServices:'Vezi serviciile', trust:'Pregătire atentă · Protecție corectă · Finisaj curat',
@@ -316,6 +422,7 @@
         aboutEyebrow:'Despre Ahmed', aboutTitle:'Simplu, curat, de încredere.', aboutCopy:'Ahmed lucrează simplu: protejează spațiul, pregătește corect suprafața, vopsește atent și lasă totul curat.',
         contactEyebrow:'Cere o ofertă', contactTitle:'Vrei să reîmprospătezi o cameră, o casă sau o locuință de închiriat?', contactCopy:'Sună-l pe Ahmed sau scrie-i pe WhatsApp. Câteva fotografii și locația lucrării ajută la o estimare inițială rapidă.', contactLabel:'Telefon / WhatsApp', contactPlaceholder:'Numărul lui Ahmed va fi adăugat', footer:'Zugrăveli și finisaje.'
       },
+
       uk: {
         navServices:'Послуги', navProcess:'Як я працюю', navAbout:'Про мене', navContact:'Контакти',
         eyebrow:'Фарбування та оздоблення', heroTitle:'Чиста робота. Простий сервіс. Результат, що служить довго.', heroLead:'Внутрішнє та зовнішнє фарбування будинків, орендованого житла та невеликих комерційних приміщень.', quote:'Отримати оцінку', seeServices:'Переглянути послуги', trust:'Акуратна підготовка · Ретельний захист · Чисте оздоблення',
@@ -328,23 +435,27 @@
     };
 
     const select = document.getElementById('language');
+    const englishReset = document.getElementById('english-reset');
     const saved = localStorage.getItem('painter-language');
-    const browserLanguage = (navigator.language || 'en').slice(0,2);
-    const initial = saved && translations[saved] ? saved : (translations[browserLanguage] ? browserLanguage : 'en');
+    const initial = saved && translations[saved] ? saved : 'en';
 
     function setLanguage(lang) {
       const dictionary = translations[lang] || translations.en;
       document.documentElement.lang = lang;
       document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
       select.value = lang;
+
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
         if (dictionary[key]) el.textContent = dictionary[key];
       });
+
       localStorage.setItem('painter-language', lang);
     }
 
-    select.addEventListener('change', e => setLanguage(e.target.value));
+    select.addEventListener('change', event => setLanguage(event.target.value));
+    englishReset.addEventListener('click', () => setLanguage('en'));
+
     document.getElementById('year').textContent = new Date().getFullYear();
     setLanguage(initial);
   </script>
