@@ -5,246 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Painter — professional painting and decorating for homes, rentals and small commercial spaces." />
   <title>Painter | Painting & Decorating</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=2" />
+  <link rel="shortcut icon" href="./favicon.svg?v=2" />
   <style>
     :root {
-      --ink: #171717;
-      --muted: #686868;
-      --paper: #f7f5f1;
-      --white: #ffffff;
-      --line: #ddd8d0;
-      --accent: #d98f39;
-      --accent-dark: #9d5f20;
-      --soft: #eee9e1;
-      --max: 1100px;
+      --ink:#171717; --muted:#686868; --paper:#f7f5f1; --white:#fff;
+      --line:#ddd8d0; --accent:#d98f39; --accent-dark:#9d5f20; --soft:#eee9e1; --max:1100px;
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background: var(--paper);
-      line-height: 1.55;
-    }
-
-    a { color: inherit; }
-    button, select { font: inherit; }
-    .wrap { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(247,245,241,.96);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(10px);
-    }
-
-    .topbar {
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      font-weight: 800;
-      letter-spacing: -.03em;
-      font-size: 1.3rem;
-      text-decoration: none;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    nav a {
-      text-decoration: none;
-      font-size: .95rem;
-    }
-
-    .language-tools {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      direction: ltr;
-      flex-shrink: 0;
-    }
-
-    .english-reset,
-    .language {
-      border: 1px solid var(--line);
-      background: var(--white);
-      border-radius: 8px;
-      padding: 8px 10px;
-      color: var(--ink);
-    }
-
-    .english-reset {
-      border-color: var(--ink);
-      font-weight: 800;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .english-reset:hover,
-    .english-reset:focus-visible {
-      background: var(--ink);
-      color: var(--white);
-    }
-
-    .hero { padding: 88px 0 74px; }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 56px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: .15em;
-      font-size: .78rem;
-      font-weight: 800;
-      color: var(--accent-dark);
-      margin: 0 0 16px;
-    }
-
-    h1 {
-      font-size: clamp(2.7rem, 7vw, 5.7rem);
-      line-height: .98;
-      letter-spacing: -.055em;
-      margin: 0;
-      max-width: 10ch;
-    }
-
-    .lead {
-      max-width: 620px;
-      font-size: 1.14rem;
-      color: var(--muted);
-      margin: 24px 0 30px;
-    }
-
-    .actions { display: flex; gap: 12px; flex-wrap: wrap; }
-
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      border-radius: 9px;
-      padding: 12px 18px;
-      font-weight: 750;
-      border: 1px solid var(--ink);
-    }
-
-    .btn.primary { background: var(--ink); color: var(--white); }
-    .btn.secondary { background: transparent; }
-    .trust { margin-top: 22px; color: var(--muted); font-size: .94rem; }
-
-    .swatches {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      min-height: 380px;
-    }
-
-    .swatch { border-radius: 14px; border: 1px solid rgba(0,0,0,.08); }
-    .swatch:nth-child(1) { background: #efe3ce; }
-    .swatch:nth-child(2) { background: #d98f39; }
-    .swatch:nth-child(3) { background: #575d53; }
-    .swatch:nth-child(4) { background: #f9f8f3; }
-
-    section { padding: 72px 0; border-top: 1px solid var(--line); }
-    .section-head { max-width: 720px; margin-bottom: 34px; }
-
-    h2 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      letter-spacing: -.045em;
-      line-height: 1.02;
-      margin: 0 0 12px;
-    }
-
-    .section-head p, .copy { color: var(--muted); margin: 0; }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-
-    .service { background: var(--white); padding: 24px; min-height: 138px; }
-    .service strong { display: block; margin-bottom: 7px; }
-    .service span { color: var(--muted); font-size: .95rem; }
-
-    .process {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 34px;
-    }
-
-    .step { padding: 26px; background: var(--soft); border-radius: 12px; }
-    .number { font-size: .8rem; font-weight: 800; color: var(--accent-dark); }
-    .step h3 { margin: 8px 0; font-size: 1.3rem; }
-    .step p { margin: 0; color: var(--muted); }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 50px;
-      align-items: start;
-    }
-
-    .about-note { font-size: 1.35rem; line-height: 1.45; margin: 0; }
-
-    .contact-box {
-      background: var(--ink);
-      color: var(--white);
-      padding: 38px;
-      border-radius: 14px;
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 30px;
-      align-items: end;
-    }
-
-    .contact-box p { color: #d5d5d5; margin-bottom: 0; }
-
-    .contact-detail {
-      border: 1px solid #4b4b4b;
-      border-radius: 10px;
-      padding: 17px;
-      color: #ededed;
-    }
-
-    .contact-detail small { display: block; color: #ababab; margin-bottom: 4px; }
-    footer { padding: 28px 0 38px; color: var(--muted); font-size: .9rem; }
-
-    [dir="rtl"] body { font-family: Tahoma, Arial, sans-serif; }
-    [dir="rtl"] .eyebrow { letter-spacing: 0; }
-
-    @media (max-width: 800px) {
-      nav { gap: 8px; }
-      nav > a { display: none; }
-      .hero { padding-top: 58px; }
-      .hero-grid, .about-grid, .contact-box { grid-template-columns: 1fr; }
-      .swatches { min-height: 250px; }
-      .services, .process { grid-template-columns: 1fr; }
-      h1 { max-width: 12ch; }
-    }
-
-    @media (max-width: 480px) {
-      .topbar { gap: 10px; }
-      .brand { font-size: 1.1rem; }
-      .english-reset, .language { padding: 7px 8px; font-size: .9rem; }
-    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);line-height:1.55}
+    a{color:inherit} button,select{font:inherit}.wrap{width:min(calc(100% - 32px),var(--max));margin:0 auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(247,245,241,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+    .topbar{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-weight:800;letter-spacing:-.03em;font-size:1.3rem;text-decoration:none}
+    nav{display:flex;align-items:center;gap:18px} nav>a{text-decoration:none;font-size:.94rem}
+    .language-tools{display:flex;align-items:center;gap:8px;direction:ltr;flex-shrink:0}
+    .english-reset,.language{border:1px solid var(--line);background:var(--white);border-radius:8px;padding:8px 10px;color:var(--ink)}
+    .english-reset{border-color:var(--ink);font-weight:800;cursor:pointer;white-space:nowrap}
+    .english-reset:hover,.english-reset:focus-visible{background:var(--ink);color:var(--white)}
+    section{padding:72px 0;border-top:1px solid var(--line)}
+    .hero{padding:88px 0 74px;border-top:0}.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+    .eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:.78rem;font-weight:800;color:var(--accent-dark);margin:0 0 16px}
+    h1{font-size:clamp(2.7rem,7vw,5.7rem);line-height:.98;letter-spacing:-.055em;margin:0;max-width:10ch}
+    h2{font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-.045em;line-height:1.02;margin:0 0 12px}
+    .lead{max-width:620px;font-size:1.14rem;color:var(--muted);margin:24px 0 30px}.section-head{max-width:760px;margin-bottom:34px}.section-head p,.copy{color:var(--muted);margin:0}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-block;text-decoration:none;border-radius:9px;padding:12px 18px;font-weight:750;border:1px solid var(--ink)}.btn.primary{background:var(--ink);color:var(--white)}.btn.secondary{background:transparent}
+    .trust{margin-top:22px;color:var(--muted);font-size:.94rem}
+    .swatches{display:grid;grid-template-columns:1fr 1fr;gap:12px;min-height:380px}.swatch{border-radius:14px;border:1px solid rgba(0,0,0,.08)}.swatch:nth-child(1){background:#efe3ce}.swatch:nth-child(2){background:#d98f39}.swatch:nth-child(3){background:#575d53}.swatch:nth-child(4){background:#f9f8f3}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.service{background:var(--white);padding:24px;min-height:138px}.service strong{display:block;margin-bottom:7px}.service span{color:var(--muted);font-size:.95rem}
+    .process{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}.step{padding:26px;background:var(--soft);border-radius:12px}.number{font-size:.8rem;font-weight:800;color:var(--accent-dark)}.step h3{margin:8px 0;font-size:1.3rem}.step p{margin:0;color:var(--muted)}
+    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start}.about-note{font-size:1.35rem;line-height:1.45;margin:0}
+    .contact-box{background:var(--ink);color:var(--white);padding:38px;border-radius:14px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:end}.contact-box p{color:#d5d5d5;margin-bottom:0}.contact-detail{border:1px solid #4b4b4b;border-radius:10px;padding:17px;color:#ededed}.contact-detail small{display:block;color:#ababab;margin-bottom:4px}
+    .temp-note{display:inline-block;background:#fff1c9;border:1px solid #d0a234;border-radius:999px;padding:7px 11px;font-size:.78rem;font-weight:850;letter-spacing:.06em;margin-bottom:15px}
+    .inspiration-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.inspiration-link{display:block;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:16px;text-decoration:none;min-height:92px}.inspiration-link:hover{border-color:var(--ink)}.inspiration-link strong{display:block;margin-bottom:5px}.inspiration-link span{color:var(--muted);font-size:.9rem}
+    footer{padding:28px 0 38px;color:var(--muted);font-size:.9rem}[dir="rtl"] body{font-family:Tahoma,Arial,sans-serif}[dir="rtl"] .eyebrow{letter-spacing:0}
+    @media(max-width:800px){nav{gap:8px}nav>a{display:none}.hero{padding-top:58px}.hero-grid,.about-grid,.contact-box{grid-template-columns:1fr}.swatches{min-height:250px}.services,.process,.inspiration-grid{grid-template-columns:1fr}h1{max-width:12ch}}
+    @media(max-width:480px){.topbar{gap:10px}.brand{font-size:1.1rem}.english-reset,.language{padding:7px 8px;font-size:.9rem}}
   </style>
 </head>
 <body>
@@ -256,24 +52,11 @@
         <a href="#process" data-i18n="navProcess">How it works</a>
         <a href="#about" data-i18n="navAbout">About</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
-
+        <a href="#inspiration">Inspiration</a>
         <div class="language-tools" aria-label="Language controls">
-          <button
-            id="english-reset"
-            class="english-reset"
-            type="button"
-            lang="en"
-            dir="ltr"
-            aria-label="Switch website back to English"
-          >English</button>
-
+          <button id="english-reset" class="english-reset" type="button" lang="en" dir="ltr" aria-label="Switch website back to English">English</button>
           <select id="language" class="language" aria-label="Choose language">
-            <option value="en">English</option>
-            <option value="ar">العربية</option>
-            <option value="pl">Polski</option>
-            <option value="lt">Lietuvių</option>
-            <option value="ro">Română</option>
-            <option value="uk">Українська</option>
+            <option value="en">English</option><option value="ar">العربية</option><option value="pl">Polski</option><option value="lt">Lietuvių</option><option value="ro">Română</option><option value="uk">Українська</option>
           </select>
         </div>
       </nav>
@@ -281,183 +64,80 @@
   </header>
 
   <main id="top">
-    <section class="hero" style="border-top:0">
+    <section class="hero">
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow" data-i18n="eyebrow">Painting & Decorating</p>
           <h1 data-i18n="heroTitle">Clean work. Straightforward service. A finish that lasts.</h1>
           <p class="lead" data-i18n="heroLead">Interior and exterior painting for homes, rentals and small commercial spaces.</p>
-          <div class="actions">
-            <a class="btn primary" href="#contact" data-i18n="quote">Get a quote</a>
-            <a class="btn secondary" href="#services" data-i18n="seeServices">See services</a>
-          </div>
+          <div class="actions"><a class="btn primary" href="#contact" data-i18n="quote">Get a quote</a><a class="btn secondary" href="#services" data-i18n="seeServices">See services</a></div>
           <p class="trust" data-i18n="trust">Neat preparation · Careful masking · Clean finish</p>
         </div>
-
-        <div class="swatches" aria-hidden="true">
-          <div class="swatch"></div>
-          <div class="swatch"></div>
-          <div class="swatch"></div>
-          <div class="swatch"></div>
-        </div>
+        <div class="swatches" aria-hidden="true"><div class="swatch"></div><div class="swatch"></div><div class="swatch"></div><div class="swatch"></div></div>
       </div>
     </section>
 
-    <section id="services">
+    <section id="services"><div class="wrap"><div class="section-head"><h2 data-i18n="servicesTitle">Painting without the fuss.</h2><p data-i18n="servicesLead">Practical painting and decorating, with the preparation done properly before the first coat goes on.</p></div><div class="services">
+      <div class="service"><strong data-i18n="s1t">Interior painting</strong><span data-i18n="s1d">Rooms, halls, stairs, kitchens and living spaces.</span></div>
+      <div class="service"><strong data-i18n="s2t">Exterior painting</strong><span data-i18n="s2d">Walls and exterior surfaces prepared for a durable finish.</span></div>
+      <div class="service"><strong data-i18n="s3t">Walls & ceilings</strong><span data-i18n="s3d">Fresh coats, colour changes and tidy touch-ups.</span></div>
+      <div class="service"><strong data-i18n="s4t">Woodwork</strong><span data-i18n="s4d">Doors, frames, skirting boards and other painted woodwork.</span></div>
+      <div class="service"><strong data-i18n="s5t">Rental refreshes</strong><span data-i18n="s5d">A clean, efficient reset between tenants or before sale.</span></div>
+      <div class="service"><strong data-i18n="s6t">Preparation & small repairs</strong><span data-i18n="s6d">Filling, sanding and surface preparation before painting.</span></div>
+    </div></div></section>
+
+    <section id="process"><div class="wrap"><div class="section-head"><h2 data-i18n="processTitle">A good finish starts before the paint.</h2><p data-i18n="processLead">The simple rule: prepare the surface first, then use the right product and apply it cleanly.</p></div><div class="process">
+      <article class="step"><span class="number">01</span><h3 data-i18n="p1t">Prepare</h3><p data-i18n="p1d">Fill, sand, clean and protect the surrounding area.</p></article>
+      <article class="step"><span class="number">02</span><h3 data-i18n="p2t">Prime</h3><p data-i18n="p2d">Use the right primer where the surface needs it.</p></article>
+      <article class="step"><span class="number">03</span><h3 data-i18n="p3t">Finish</h3><p data-i18n="p3d">Apply the correct paint in clean, even coats.</p></article>
+    </div></div></section>
+
+    <section id="about"><div class="wrap about-grid"><div><p class="eyebrow" data-i18n="aboutEyebrow">About Ahmed</p><h2 data-i18n="aboutTitle">Simple, tidy, reliable.</h2></div><p class="about-note" data-i18n="aboutCopy">Ahmed takes a straightforward approach: protect the space, prepare properly, paint carefully and leave the job tidy.</p></div></section>
+
+    <section id="contact"><div class="wrap"><div class="contact-box"><div><p class="eyebrow" style="color:#e5a65e" data-i18n="contactEyebrow">Get a quote</p><h2 data-i18n="contactTitle">Need a room, house or rental refreshed?</h2><p data-i18n="contactCopy">Call or WhatsApp Ahmed. Sending a few photos of the work and your location helps with a quick first estimate.</p></div><div class="contact-detail"><small data-i18n="contactLabel">Phone / WhatsApp</small><strong data-i18n="contactPlaceholder">Ahmed’s number to be added</strong></div></div></div></section>
+
+    <section id="inspiration">
       <div class="wrap">
-        <div class="section-head">
-          <h2 data-i18n="servicesTitle">Painting without the fuss.</h2>
-          <p data-i18n="servicesLead">Practical painting and decorating, with the preparation done properly before the first coat goes on.</p>
-        </div>
-
-        <div class="services">
-          <div class="service"><strong data-i18n="s1t">Interior painting</strong><span data-i18n="s1d">Rooms, halls, stairs, kitchens and living spaces.</span></div>
-          <div class="service"><strong data-i18n="s2t">Exterior painting</strong><span data-i18n="s2d">Walls and exterior surfaces prepared for a durable finish.</span></div>
-          <div class="service"><strong data-i18n="s3t">Walls & ceilings</strong><span data-i18n="s3d">Fresh coats, colour changes and tidy touch-ups.</span></div>
-          <div class="service"><strong data-i18n="s4t">Woodwork</strong><span data-i18n="s4d">Doors, frames, skirting boards and other painted woodwork.</span></div>
-          <div class="service"><strong data-i18n="s5t">Rental refreshes</strong><span data-i18n="s5d">A clean, efficient reset between tenants or before sale.</span></div>
-          <div class="service"><strong data-i18n="s6t">Preparation & small repairs</strong><span data-i18n="s6d">Filling, sanding and surface preparation before painting.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="process">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 data-i18n="processTitle">A good finish starts before the paint.</h2>
-          <p data-i18n="processLead">The simple rule: prepare the surface first, then use the right product and apply it cleanly.</p>
-        </div>
-
-        <div class="process">
-          <article class="step"><span class="number">01</span><h3 data-i18n="p1t">Prepare</h3><p data-i18n="p1d">Fill, sand, clean and protect the surrounding area.</p></article>
-          <article class="step"><span class="number">02</span><h3 data-i18n="p2t">Prime</h3><p data-i18n="p2d">Use the right primer where the surface needs it.</p></article>
-          <article class="step"><span class="number">03</span><h3 data-i18n="p3t">Finish</h3><p data-i18n="p3d">Apply the correct paint in clean, even coats.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="wrap about-grid">
-        <div>
-          <p class="eyebrow" data-i18n="aboutEyebrow">About Ahmed</p>
-          <h2 data-i18n="aboutTitle">Simple, tidy, reliable.</h2>
-        </div>
-        <p class="about-note" data-i18n="aboutCopy">Ahmed takes a straightforward approach: protect the space, prepare properly, paint carefully and leave the job tidy.</p>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="wrap">
-        <div class="contact-box">
-          <div>
-            <p class="eyebrow" style="color:#e5a65e" data-i18n="contactEyebrow">Get a quote</p>
-            <h2 data-i18n="contactTitle">Need a room, house or rental refreshed?</h2>
-            <p data-i18n="contactCopy">Call or WhatsApp Ahmed. Sending a few photos of the work and your location helps with a quick first estimate.</p>
-          </div>
-
-          <div class="contact-detail">
-            <small data-i18n="contactLabel">Phone / WhatsApp</small>
-            <strong data-i18n="contactPlaceholder">Ahmed’s number to be added</strong>
-          </div>
+        <span class="temp-note">TEMPORARY INSPIRATION — REMOVE LATER</span>
+        <div class="section-head"><h2>15 painter websites for inspiration</h2><p>These are here only while we decide what Ahmed likes. We will remove this whole section before the finished site goes live.</p></div>
+        <div class="inspiration-grid">
+          <a class="inspiration-link" href="https://newcolor.ie/" target="_blank" rel="noopener"><strong>New Color</strong><span>Direct opening, WhatsApp, service cards and project photos.</span></a>
+          <a class="inspiration-link" href="https://www.goodpainter.ie/" target="_blank" rel="noopener"><strong>GoodPainter</strong><span>Personal introduction, tidy-work message and simple quote journey.</span></a>
+          <a class="inspiration-link" href="https://www.ppdsolutions.ie/" target="_blank" rel="noopener"><strong>PP&amp;D Solutions</strong><span>Small-business feel, concise services and clear contact details.</span></a>
+          <a class="inspiration-link" href="https://www.drmaintenance4.ie/" target="_blank" rel="noopener"><strong>D&amp;R Maintenance</strong><span>Local positioning, free quote and before-and-after ideas.</span></a>
+          <a class="inspiration-link" href="https://propaint.ie/" target="_blank" rel="noopener"><strong>ProPaint Cork</strong><span>Clean categories, short hero statement and restrained design.</span></a>
+          <a class="inspiration-link" href="https://www.gbpainting.ie/" target="_blank" rel="noopener"><strong>GB Painting</strong><span>Location and services stated immediately; quote-first navigation.</span></a>
+          <a class="inspiration-link" href="https://dublindecopainting.ie/" target="_blank" rel="noopener"><strong>Dublin Deco Painting</strong><span>Clear hero, trust signals and concise service cards.</span></a>
+          <a class="inspiration-link" href="https://artdeco.ie/" target="_blank" rel="noopener"><strong>ArtDeco</strong><span>Personal positioning and reassurance about protecting the home.</span></a>
+          <a class="inspiration-link" href="https://www.brilliantwhite.ie/" target="_blank" rel="noopener"><strong>Brilliant White</strong><span>Straightforward domestic, commercial and rental wording.</span></a>
+          <a class="inspiration-link" href="https://www.prodecor.ie/" target="_blank" rel="noopener"><strong>Pro Décor</strong><span>Regional coverage, free quote and friendly professional tone.</span></a>
+          <a class="inspiration-link" href="https://paintingindublin.ie/" target="_blank" rel="noopener"><strong>Painting in Dublin</strong><span>Compact quality, reliability and on-time trust blocks.</span></a>
+          <a class="inspiration-link" href="https://www.painting-dublin.ie/" target="_blank" rel="noopener"><strong>Painting Dublin</strong><span>Online quote and warranty ideas; more complex than we need.</span></a>
+          <a class="inspiration-link" href="https://paintingdublin.ie/" target="_blank" rel="noopener"><strong>DT Decor</strong><span>Prominent phone details, testimonials and colour consultation.</span></a>
+          <a class="inspiration-link" href="https://www.painteranddecoratorcork.ie/" target="_blank" rel="noopener"><strong>Michael A. Crowley</strong><span>Domestic/commercial grouping and straightforward trade language.</span></a>
+          <a class="inspiration-link" href="https://rambergpainters.ie/" target="_blank" rel="noopener"><strong>Ramberg Painters</strong><span>Family-business story, credibility and project imagery.</span></a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <span>© <span id="year"></span> Painter.</span>
-      <span data-i18n="footer">Painting & decorating.</span>
-    </div>
-  </footer>
+  <footer><div class="wrap"><span>© <span id="year"></span> Painter.</span> <span data-i18n="footer">Painting & decorating.</span></div></footer>
 
   <script>
-    const translations = {
-      en: {
-        navServices:'Services', navProcess:'How it works', navAbout:'About', navContact:'Contact',
-        eyebrow:'Painting & Decorating', heroTitle:'Clean work. Straightforward service. A finish that lasts.', heroLead:'Interior and exterior painting for homes, rentals and small commercial spaces.', quote:'Get a quote', seeServices:'See services', trust:'Neat preparation · Careful masking · Clean finish',
-        servicesTitle:'Painting without the fuss.', servicesLead:'Practical painting and decorating, with the preparation done properly before the first coat goes on.',
-        s1t:'Interior painting', s1d:'Rooms, halls, stairs, kitchens and living spaces.', s2t:'Exterior painting', s2d:'Walls and exterior surfaces prepared for a durable finish.', s3t:'Walls & ceilings', s3d:'Fresh coats, colour changes and tidy touch-ups.', s4t:'Woodwork', s4d:'Doors, frames, skirting boards and other painted woodwork.', s5t:'Rental refreshes', s5d:'A clean, efficient reset between tenants or before sale.', s6t:'Preparation & small repairs', s6d:'Filling, sanding and surface preparation before painting.',
-        processTitle:'A good finish starts before the paint.', processLead:'The simple rule: prepare the surface first, then use the right product and apply it cleanly.', p1t:'Prepare', p1d:'Fill, sand, clean and protect the surrounding area.', p2t:'Prime', p2d:'Use the right primer where the surface needs it.', p3t:'Finish', p3d:'Apply the correct paint in clean, even coats.',
-        aboutEyebrow:'About Ahmed', aboutTitle:'Simple, tidy, reliable.', aboutCopy:'Ahmed takes a straightforward approach: protect the space, prepare properly, paint carefully and leave the job tidy.',
-        contactEyebrow:'Get a quote', contactTitle:'Need a room, house or rental refreshed?', contactCopy:'Call or WhatsApp Ahmed. Sending a few photos of the work and your location helps with a quick first estimate.', contactLabel:'Phone / WhatsApp', contactPlaceholder:'Ahmed’s number to be added', footer:'Painting & decorating.'
-      },
-
-      ar: {
-        navServices:'الخدمات', navProcess:'طريقة العمل', navAbout:'عن أحمد', navContact:'التواصل',
-        eyebrow:'دهان وديكور', heroTitle:'عمل نظيف. خدمة واضحة. تشطيب يدوم.', heroLead:'دهان داخلي وخارجي للمنازل والعقارات المؤجرة والمساحات التجارية الصغيرة.', quote:'اطلب عرض سعر', seeServices:'شاهد الخدمات', trust:'تحضير مرتب · تغطية دقيقة · تشطيب نظيف',
-        servicesTitle:'دهان بسيط ومن دون تعقيد.', servicesLead:'أعمال دهان وديكور عملية، مع تحضير السطح بشكل صحيح قبل وضع الطبقة الأولى.',
-        s1t:'دهان داخلي', s1d:'الغرف والممرات والسلالم والمطابخ وغرف المعيشة.', s2t:'دهان خارجي', s2d:'تحضير الجدران والأسطح الخارجية للحصول على تشطيب متين.', s3t:'الجدران والأسقف', s3d:'دهان جديد، تغيير الألوان ولمسات إصلاح مرتبة.', s4t:'الأعمال الخشبية', s4d:'الأبواب والإطارات والحواف الخشبية وغيرها من الأسطح الخشبية المطلية.', s5t:'تجديد العقارات المؤجرة', s5d:'تجديد نظيف وفعال بين المستأجرين أو قبل البيع.', s6t:'التحضير والإصلاحات الصغيرة', s6d:'تعبئة الشقوق والصنفرة وتحضير السطح قبل الدهان.',
-        processTitle:'التشطيب الجيد يبدأ قبل فتح علبة الدهان.', processLead:'القاعدة بسيطة: حضّر السطح أولاً، ثم استخدم المنتج المناسب وطبّقه بعناية.', p1t:'التحضير', p1d:'تعبئة العيوب والصنفرة والتنظيف وحماية المنطقة المحيطة.', p2t:'الطبقة التأسيسية', p2d:'استخدام البرايمر المناسب عندما يحتاج السطح إليه.', p3t:'التشطيب', p3d:'وضع الدهان المناسب بطبقات نظيفة ومتساوية.',
-        aboutEyebrow:'عن أحمد', aboutTitle:'بسيط، مرتب، موثوق.', aboutCopy:'يتبع أحمد أسلوباً واضحاً: حماية المكان، التحضير الجيد، الدهان بعناية وترك الموقع نظيفاً.',
-        contactEyebrow:'اطلب عرض سعر', contactTitle:'هل تحتاج إلى تجديد غرفة أو منزل أو عقار مؤجر؟', contactCopy:'اتصل بأحمد أو راسله عبر واتساب. إرسال بعض الصور وموقع العمل يساعد في إعطاء تقدير أولي سريع.', contactLabel:'الهاتف / واتساب', contactPlaceholder:'سيتم إضافة رقم أحمد', footer:'دهان وديكور.'
-      },
-
-      pl: {
-        navServices:'Usługi', navProcess:'Jak pracuję', navAbout:'O mnie', navContact:'Kontakt',
-        eyebrow:'Malowanie i dekorowanie', heroTitle:'Czysta praca. Prosta obsługa. Trwałe wykończenie.', heroLead:'Malowanie wnętrz i elewacji w domach, mieszkaniach na wynajem i małych lokalach użytkowych.', quote:'Poproś o wycenę', seeServices:'Zobacz usługi', trust:'Dokładne przygotowanie · Staranna ochrona · Czyste wykończenie',
-        servicesTitle:'Malowanie bez komplikacji.', servicesLead:'Praktyczne malowanie i dekorowanie z właściwym przygotowaniem powierzchni przed pierwszą warstwą farby.',
-        s1t:'Malowanie wnętrz', s1d:'Pokoje, korytarze, schody, kuchnie i salony.', s2t:'Malowanie na zewnątrz', s2d:'Ściany i powierzchnie zewnętrzne przygotowane pod trwałe wykończenie.', s3t:'Ściany i sufity', s3d:'Odświeżanie, zmiana koloru i estetyczne poprawki.', s4t:'Elementy drewniane', s4d:'Drzwi, futryny, listwy przypodłogowe i inne malowane elementy drewniane.', s5t:'Odświeżanie wynajmu', s5d:'Szybkie i czyste odnowienie między najemcami lub przed sprzedażą.', s6t:'Przygotowanie i drobne naprawy', s6d:'Szpachlowanie, szlifowanie i przygotowanie powierzchni przed malowaniem.',
-        processTitle:'Dobre wykończenie zaczyna się przed malowaniem.', processLead:'Zasada jest prosta: najpierw przygotuj powierzchnię, potem użyj właściwego produktu i nałóż go starannie.', p1t:'Przygotowanie', p1d:'Szpachlowanie, szlifowanie, czyszczenie i zabezpieczenie otoczenia.', p2t:'Gruntowanie', p2d:'Odpowiedni grunt tam, gdzie wymaga tego powierzchnia.', p3t:'Wykończenie', p3d:'Właściwa farba nakładana równymi, czystymi warstwami.',
-        aboutEyebrow:'O Ahmedzie', aboutTitle:'Prosto, czysto, solidnie.', aboutCopy:'Ahmed pracuje według prostej zasady: zabezpieczyć miejsce, dobrze przygotować powierzchnię, starannie pomalować i zostawić porządek.',
-        contactEyebrow:'Poproś o wycenę', contactTitle:'Chcesz odświeżyć pokój, dom lub mieszkanie na wynajem?', contactCopy:'Zadzwoń lub napisz do Ahmeda na WhatsApp. Kilka zdjęć i lokalizacja pomogą szybko przygotować wstępną wycenę.', contactLabel:'Telefon / WhatsApp', contactPlaceholder:'Numer Ahmeda do dodania', footer:'Malowanie i dekorowanie.'
-      },
-
-      lt: {
-        navServices:'Paslaugos', navProcess:'Kaip dirbama', navAbout:'Apie', navContact:'Kontaktai',
-        eyebrow:'Dažymas ir apdaila', heroTitle:'Tvarkingas darbas. Paprastas bendravimas. Ilgaamžė apdaila.', heroLead:'Vidaus ir lauko dažymas namams, nuomojamam būstui ir nedidelėms komercinėms patalpoms.', quote:'Gauti pasiūlymą', seeServices:'Žiūrėti paslaugas', trust:'Tvarkingas paruošimas · Kruopšti apsauga · Švari apdaila',
-        servicesTitle:'Dažymas be rūpesčių.', servicesLead:'Praktiški dažymo ir apdailos darbai, tinkamai paruošiant paviršių prieš pirmą dažų sluoksnį.',
-        s1t:'Vidaus dažymas', s1d:'Kambariai, koridoriai, laiptai, virtuvės ir svetainės.', s2t:'Lauko dažymas', s2d:'Sienos ir išoriniai paviršiai paruošiami ilgaamžei apdailai.', s3t:'Sienos ir lubos', s3d:'Atnaujinimas, spalvų keitimas ir tvarkingi pataisymai.', s4t:'Medžio darbai', s4d:'Durys, staktos, grindjuostės ir kiti dažomi mediniai paviršiai.', s5t:'Nuomojamo būsto atnaujinimas', s5d:'Švarus ir greitas atnaujinimas tarp nuomininkų arba prieš pardavimą.', s6t:'Paruošimas ir smulkūs taisymai', s6d:'Glaistymas, šlifavimas ir paviršiaus paruošimas prieš dažymą.',
-        processTitle:'Gera apdaila prasideda dar prieš dažymą.', processLead:'Taisyklė paprasta: pirmiausia paruošti paviršių, tada pasirinkti tinkamą produktą ir jį tvarkingai padengti.', p1t:'Paruošti', p1d:'Užglaistyti, nušlifuoti, nuvalyti ir apsaugoti aplinką.', p2t:'Gruntuoti', p2d:'Naudoti tinkamą gruntą ten, kur jo reikia.', p3t:'Užbaigti', p3d:'Tinkamus dažus dengti švariais, tolygiais sluoksniais.',
-        aboutEyebrow:'Apie Ahmedą', aboutTitle:'Paprastai, tvarkingai, patikimai.', aboutCopy:'Ahmedas dirba paprastai: apsaugo patalpą, tinkamai paruošia paviršius, kruopščiai nudažo ir palieka tvarką.',
-        contactEyebrow:'Gauti pasiūlymą', contactTitle:'Reikia atnaujinti kambarį, namą ar nuomojamą būstą?', contactCopy:'Paskambinkite Ahmedui arba parašykite per WhatsApp. Kelios darbo nuotraukos ir vieta padės greitai pateikti pirminį įvertinimą.', contactLabel:'Telefonas / WhatsApp', contactPlaceholder:'Ahmedo numeris bus pridėtas', footer:'Dažymas ir apdaila.'
-      },
-
-      ro: {
-        navServices:'Servicii', navProcess:'Cum lucrez', navAbout:'Despre', navContact:'Contact',
-        eyebrow:'Zugrăveli și finisaje', heroTitle:'Lucru curat. Serviciu simplu. Un finisaj care rezistă.', heroLead:'Zugrăveli interioare și exterioare pentru locuințe, proprietăți închiriate și spații comerciale mici.', quote:'Cere o ofertă', seeServices:'Vezi serviciile', trust:'Pregătire atentă · Protecție corectă · Finisaj curat',
-        servicesTitle:'Zugrăveli fără complicații.', servicesLead:'Lucrări practice de zugrăvire și finisare, cu pregătirea corectă a suprafeței înainte de primul strat.',
-        s1t:'Zugrăveli interioare', s1d:'Camere, holuri, scări, bucătării și livinguri.', s2t:'Zugrăveli exterioare', s2d:'Pereți și suprafețe exterioare pregătite pentru un finisaj durabil.', s3t:'Pereți și tavane', s3d:'Reîmprospătare, schimbare de culoare și retușuri curate.', s4t:'Elemente din lemn', s4d:'Uși, tocuri, plinte și alte suprafețe din lemn vopsite.', s5t:'Reîmprospătare pentru chirii', s5d:'O renovare curată și eficientă între chiriași sau înainte de vânzare.', s6t:'Pregătire și mici reparații', s6d:'Chituire, șlefuire și pregătirea suprafeței înainte de vopsire.',
-        processTitle:'Un finisaj bun începe înainte de vopsea.', processLead:'Regula este simplă: pregătește mai întâi suprafața, apoi folosește produsul potrivit și aplică-l curat.', p1t:'Pregătire', p1d:'Chituire, șlefuire, curățare și protejarea zonei din jur.', p2t:'Amorsare', p2d:'Folosirea amorsei potrivite acolo unde suprafața o cere.', p3t:'Finisare', p3d:'Aplicarea vopselei potrivite în straturi curate și uniforme.',
-        aboutEyebrow:'Despre Ahmed', aboutTitle:'Simplu, curat, de încredere.', aboutCopy:'Ahmed lucrează simplu: protejează spațiul, pregătește corect suprafața, vopsește atent și lasă totul curat.',
-        contactEyebrow:'Cere o ofertă', contactTitle:'Vrei să reîmprospătezi o cameră, o casă sau o locuință de închiriat?', contactCopy:'Sună-l pe Ahmed sau scrie-i pe WhatsApp. Câteva fotografii și locația lucrării ajută la o estimare inițială rapidă.', contactLabel:'Telefon / WhatsApp', contactPlaceholder:'Numărul lui Ahmed va fi adăugat', footer:'Zugrăveli și finisaje.'
-      },
-
-      uk: {
-        navServices:'Послуги', navProcess:'Як я працюю', navAbout:'Про мене', navContact:'Контакти',
-        eyebrow:'Фарбування та оздоблення', heroTitle:'Чиста робота. Простий сервіс. Результат, що служить довго.', heroLead:'Внутрішнє та зовнішнє фарбування будинків, орендованого житла та невеликих комерційних приміщень.', quote:'Отримати оцінку', seeServices:'Переглянути послуги', trust:'Акуратна підготовка · Ретельний захист · Чисте оздоблення',
-        servicesTitle:'Фарбування без зайвих складнощів.', servicesLead:'Практичні малярні та оздоблювальні роботи з правильною підготовкою поверхні до нанесення першого шару.',
-        s1t:'Внутрішнє фарбування', s1d:'Кімнати, коридори, сходи, кухні та вітальні.', s2t:'Зовнішнє фарбування', s2d:'Стіни та зовнішні поверхні, підготовлені для довговічного покриття.', s3t:'Стіни та стелі', s3d:'Оновлення, зміна кольору та акуратні підфарбовування.', s4t:'Дерев’яні елементи', s4d:'Двері, рами, плінтуси та інші пофарбовані дерев’яні поверхні.', s5t:'Оновлення орендованого житла', s5d:'Чисте та ефективне оновлення між орендарями або перед продажем.', s6t:'Підготовка та дрібний ремонт', s6d:'Шпаклювання, шліфування та підготовка поверхні перед фарбуванням.',
-        processTitle:'Якісне покриття починається ще до фарбування.', processLead:'Правило просте: спочатку підготувати поверхню, потім використати правильний матеріал і нанести його акуратно.', p1t:'Підготовка', p1d:'Заповнити нерівності, відшліфувати, очистити та захистити простір навколо.', p2t:'Ґрунтування', p2d:'Використати відповідну ґрунтовку там, де вона потрібна.', p3t:'Фініш', p3d:'Нанести правильну фарбу чистими, рівними шарами.',
-        aboutEyebrow:'Про Ахмеда', aboutTitle:'Просто, охайно, надійно.', aboutCopy:'Ахмед працює просто: захищає приміщення, правильно готує поверхні, акуратно фарбує і залишає після себе порядок.',
-        contactEyebrow:'Отримати оцінку', contactTitle:'Потрібно освіжити кімнату, будинок або орендоване житло?', contactCopy:'Зателефонуйте Ахмеду або напишіть у WhatsApp. Кілька фотографій та місце роботи допоможуть швидко дати попередню оцінку.', contactLabel:'Телефон / WhatsApp', contactPlaceholder:'Номер Ахмеда буде додано', footer:'Фарбування та оздоблення.'
-      }
+    const translations={
+      en:{navServices:'Services',navProcess:'How it works',navAbout:'About',navContact:'Contact',eyebrow:'Painting & Decorating',heroTitle:'Clean work. Straightforward service. A finish that lasts.',heroLead:'Interior and exterior painting for homes, rentals and small commercial spaces.',quote:'Get a quote',seeServices:'See services',trust:'Neat preparation · Careful masking · Clean finish',servicesTitle:'Painting without the fuss.',servicesLead:'Practical painting and decorating, with the preparation done properly before the first coat goes on.',s1t:'Interior painting',s1d:'Rooms, halls, stairs, kitchens and living spaces.',s2t:'Exterior painting',s2d:'Walls and exterior surfaces prepared for a durable finish.',s3t:'Walls & ceilings',s3d:'Fresh coats, colour changes and tidy touch-ups.',s4t:'Woodwork',s4d:'Doors, frames, skirting boards and other painted woodwork.',s5t:'Rental refreshes',s5d:'A clean, efficient reset between tenants or before sale.',s6t:'Preparation & small repairs',s6d:'Filling, sanding and surface preparation before painting.',processTitle:'A good finish starts before the paint.',processLead:'The simple rule: prepare the surface first, then use the right product and apply it cleanly.',p1t:'Prepare',p1d:'Fill, sand, clean and protect the surrounding area.',p2t:'Prime',p2d:'Use the right primer where the surface needs it.',p3t:'Finish',p3d:'Apply the correct paint in clean, even coats.',aboutEyebrow:'About Ahmed',aboutTitle:'Simple, tidy, reliable.',aboutCopy:'Ahmed takes a straightforward approach: protect the space, prepare properly, paint carefully and leave the job tidy.',contactEyebrow:'Get a quote',contactTitle:'Need a room, house or rental refreshed?',contactCopy:'Call or WhatsApp Ahmed. Sending a few photos of the work and your location helps with a quick first estimate.',contactLabel:'Phone / WhatsApp',contactPlaceholder:'Ahmed’s number to be added',footer:'Painting & decorating.'},
+      ar:{navServices:'الخدمات',navProcess:'طريقة العمل',navAbout:'عن أحمد',navContact:'التواصل',eyebrow:'دهان وديكور',heroTitle:'عمل نظيف. خدمة واضحة. تشطيب يدوم.',heroLead:'دهان داخلي وخارجي للمنازل والعقارات المؤجرة والمساحات التجارية الصغيرة.',quote:'اطلب عرض سعر',seeServices:'شاهد الخدمات',trust:'تحضير مرتب · تغطية دقيقة · تشطيب نظيف',servicesTitle:'دهان بسيط ومن دون تعقيد.',servicesLead:'أعمال دهان وديكور عملية، مع تحضير السطح بشكل صحيح قبل وضع الطبقة الأولى.',s1t:'دهان داخلي',s1d:'الغرف والممرات والسلالم والمطابخ وغرف المعيشة.',s2t:'دهان خارجي',s2d:'تحضير الجدران والأسطح الخارجية للحصول على تشطيب متين.',s3t:'الجدران والأسقف',s3d:'دهان جديد، تغيير الألوان ولمسات إصلاح مرتبة.',s4t:'الأعمال الخشبية',s4d:'الأبواب والإطارات والحواف الخشبية وغيرها من الأسطح الخشبية المطلية.',s5t:'تجديد العقارات المؤجرة',s5d:'تجديد نظيف وفعال بين المستأجرين أو قبل البيع.',s6t:'التحضير والإصلاحات الصغيرة',s6d:'تعبئة الشقوق والصنفرة وتحضير السطح قبل الدهان.',processTitle:'التشطيب الجيد يبدأ قبل فتح علبة الدهان.',processLead:'القاعدة بسيطة: حضّر السطح أولاً، ثم استخدم المنتج المناسب وطبّقه بعناية.',p1t:'التحضير',p1d:'تعبئة العيوب والصنفرة والتنظيف وحماية المنطقة المحيطة.',p2t:'الطبقة التأسيسية',p2d:'استخدام البرايمر المناسب عندما يحتاج السطح إليه.',p3t:'التشطيب',p3d:'وضع الدهان المناسب بطبقات نظيفة ومتساوية.',aboutEyebrow:'عن أحمد',aboutTitle:'بسيط، مرتب، موثوق.',aboutCopy:'يتبع أحمد أسلوباً واضحاً: حماية المكان، التحضير الجيد، الدهان بعناية وترك الموقع نظيفاً.',contactEyebrow:'اطلب عرض سعر',contactTitle:'هل تحتاج إلى تجديد غرفة أو منزل أو عقار مؤجر؟',contactCopy:'اتصل بأحمد أو راسله عبر واتساب. إرسال بعض الصور وموقع العمل يساعد في إعطاء تقدير أولي سريع.',contactLabel:'الهاتف / واتساب',contactPlaceholder:'سيتم إضافة رقم أحمد',footer:'دهان وديكور.'},
+      pl:{navServices:'Usługi',navProcess:'Jak pracuję',navAbout:'O mnie',navContact:'Kontakt',eyebrow:'Malowanie i dekorowanie',heroTitle:'Czysta praca. Prosta obsługa. Trwałe wykończenie.',heroLead:'Malowanie wnętrz i elewacji w domach, mieszkaniach na wynajem i małych lokalach użytkowych.',quote:'Poproś o wycenę',seeServices:'Zobacz usługi',trust:'Dokładne przygotowanie · Staranna ochrona · Czyste wykończenie',servicesTitle:'Malowanie bez komplikacji.',servicesLead:'Praktyczne malowanie i dekorowanie z właściwym przygotowaniem powierzchni przed pierwszą warstwą farby.',s1t:'Malowanie wnętrz',s1d:'Pokoje, korytarze, schody, kuchnie i salony.',s2t:'Malowanie na zewnątrz',s2d:'Ściany i powierzchnie zewnętrzne przygotowane pod trwałe wykończenie.',s3t:'Ściany i sufity',s3d:'Odświeżanie, zmiana koloru i estetyczne poprawki.',s4t:'Elementy drewniane',s4d:'Drzwi, futryny, listwy przypodłogowe i inne malowane elementy drewniane.',s5t:'Odświeżanie wynajmu',s5d:'Szybkie i czyste odnowienie między najemcami lub przed sprzedażą.',s6t:'Przygotowanie i drobne naprawy',s6d:'Szpachlowanie, szlifowanie i przygotowanie powierzchni przed malowaniem.',processTitle:'Dobre wykończenie zaczyna się przed malowaniem.',processLead:'Zasada jest prosta: najpierw przygotuj powierzchnię, potem użyj właściwego produktu i nałóż go starannie.',p1t:'Przygotowanie',p1d:'Szpachlowanie, szlifowanie, czyszczenie i zabezpieczenie otoczenia.',p2t:'Gruntowanie',p2d:'Odpowiedni grunt tam, gdzie wymaga tego powierzchnia.',p3t:'Wykończenie',p3d:'Właściwa farba nakładana równymi, czystymi warstwami.',aboutEyebrow:'O Ahmedzie',aboutTitle:'Prosto, czysto, solidnie.',aboutCopy:'Ahmed pracuje według prostej zasady: zabezpieczyć miejsce, dobrze przygotować powierzchnię, starannie pomalować i zostawić porządek.',contactEyebrow:'Poproś o wycenę',contactTitle:'Chcesz odświeżyć pokój, dom lub mieszkanie na wynajem?',contactCopy:'Zadzwoń lub napisz do Ahmeda na WhatsApp. Kilka zdjęć i lokalizacja pomogą szybko przygotować wstępną wycenę.',contactLabel:'Telefon / WhatsApp',contactPlaceholder:'Numer Ahmeda do dodania',footer:'Malowanie i dekorowanie.'},
+      lt:{navServices:'Paslaugos',navProcess:'Kaip dirbama',navAbout:'Apie',navContact:'Kontaktai',eyebrow:'Dažymas ir apdaila',heroTitle:'Tvarkingas darbas. Paprastas bendravimas. Ilgaamžė apdaila.',heroLead:'Vidaus ir lauko dažymas namams, nuomojamam būstui ir nedidelėms komercinėms patalpoms.',quote:'Gauti pasiūlymą',seeServices:'Žiūrėti paslaugas',trust:'Tvarkingas paruošimas · Kruopšti apsauga · Švari apdaila',servicesTitle:'Dažymas be rūpesčių.',servicesLead:'Praktiški dažymo ir apdailos darbai, tinkamai paruošiant paviršių prieš pirmą dažų sluoksnį.',s1t:'Vidaus dažymas',s1d:'Kambariai, koridoriai, laiptai, virtuvės ir svetainės.',s2t:'Lauko dažymas',s2d:'Sienos ir išoriniai paviršiai paruošiami ilgaamžei apdailai.',s3t:'Sienos ir lubos',s3d:'Atnaujinimas, spalvų keitimas ir tvarkingi pataisymai.',s4t:'Medžio darbai',s4d:'Durys, staktos, grindjuostės ir kiti dažomi mediniai paviršiai.',s5t:'Nuomojamo būsto atnaujinimas',s5d:'Švarus ir greitas atnaujinimas tarp nuomininkų arba prieš pardavimą.',s6t:'Paruošimas ir smulkūs taisymai',s6d:'Glaistymas, šlifavimas ir paviršiaus paruošimas prieš dažymą.',processTitle:'Gera apdaila prasideda dar prieš dažymą.',processLead:'Taisyklė paprasta: pirmiausia paruošti paviršių, tada pasirinkti tinkamą produktą ir jį tvarkingai padengti.',p1t:'Paruošti',p1d:'Užglaistyti, nušlifuoti, nuvalyti ir apsaugoti aplinką.',p2t:'Gruntuoti',p2d:'Naudoti tinkamą gruntą ten, kur jo reikia.',p3t:'Užbaigti',p3d:'Tinkamus dažus dengti švariais, tolygiais sluoksniais.',aboutEyebrow:'Apie Ahmedą',aboutTitle:'Paprastai, tvarkingai, patikimai.',aboutCopy:'Ahmedas dirba paprastai: apsaugo patalpą, tinkamai paruošia paviršius, kruopščiai nudažo ir palieka tvarką.',contactEyebrow:'Gauti pasiūlymą',contactTitle:'Reikia atnaujinti kambarį, namą ar nuomojamą būstą?',contactCopy:'Paskambinkite Ahmedui arba parašykite per WhatsApp. Kelios darbo nuotraukos ir vieta padės greitai pateikti pirminį įvertinimą.',contactLabel:'Telefonas / WhatsApp',contactPlaceholder:'Ahmedo numeris bus pridėtas',footer:'Dažymas ir apdaila.'},
+      ro:{navServices:'Servicii',navProcess:'Cum lucrez',navAbout:'Despre',navContact:'Contact',eyebrow:'Zugrăveli și finisaje',heroTitle:'Lucru curat. Serviciu simplu. Un finisaj care rezistă.',heroLead:'Zugrăveli interioare și exterioare pentru locuințe, proprietăți închiriate și spații comerciale mici.',quote:'Cere o ofertă',seeServices:'Vezi serviciile',trust:'Pregătire atentă · Protecție corectă · Finisaj curat',servicesTitle:'Zugrăveli fără complicații.',servicesLead:'Lucrări practice de zugrăvire și finisare, cu pregătirea corectă a suprafeței înainte de primul strat.',s1t:'Zugrăveli interioare',s1d:'Camere, holuri, scări, bucătării și livinguri.',s2t:'Zugrăveli exterioare',s2d:'Pereți și suprafețe exterioare pregătite pentru un finisaj durabil.',s3t:'Pereți și tavane',s3d:'Reîmprospătare, schimbare de culoare și retușuri curate.',s4t:'Elemente din lemn',s4d:'Uși, tocuri, plinte și alte suprafețe din lemn vopsite.',s5t:'Reîmprospătare pentru chirii',s5d:'O renovare curată și eficientă între chiriași sau înainte de vânzare.',s6t:'Pregătire și mici reparații',s6d:'Chituire, șlefuire și pregătirea suprafeței înainte de vopsire.',processTitle:'Un finisaj bun începe înainte de vopsea.',processLead:'Regula este simplă: pregătește mai întâi suprafața, apoi folosește produsul potrivit și aplică-l curat.',p1t:'Pregătire',p1d:'Chituire, șlefuire, curățare și protejarea zonei din jur.',p2t:'Amorsare',p2d:'Folosirea amorsei potrivite acolo unde suprafața o cere.',p3t:'Finisare',p3d:'Aplicarea vopselei potrivite în straturi curate și uniforme.',aboutEyebrow:'Despre Ahmed',aboutTitle:'Simplu, curat, de încredere.',aboutCopy:'Ahmed lucrează simplu: protejează spațiul, pregătește corect suprafața, vopsește atent și lasă totul curat.',contactEyebrow:'Cere o ofertă',contactTitle:'Vrei să reîmprospătezi o cameră, o casă sau o locuință de închiriat?',contactCopy:'Sună-l pe Ahmed sau scrie-i pe WhatsApp. Câteva fotografii și locația lucrării ajută la o estimare inițială rapidă.',contactLabel:'Telefon / WhatsApp',contactPlaceholder:'Numărul lui Ahmed va fi adăugat',footer:'Zugrăveli și finisaje.'},
+      uk:{navServices:'Послуги',navProcess:'Як я працюю',navAbout:'Про мене',navContact:'Контакти',eyebrow:'Фарбування та оздоблення',heroTitle:'Чиста робота. Простий сервіс. Результат, що служить довго.',heroLead:'Внутрішнє та зовнішнє фарбування будинків, орендованого житла та невеликих комерційних приміщень.',quote:'Отримати оцінку',seeServices:'Переглянути послуги',trust:'Акуратна підготовка · Ретельний захист · Чисте оздоблення',servicesTitle:'Фарбування без зайвих складнощів.',servicesLead:'Практичні малярні та оздоблювальні роботи з правильною підготовкою поверхні до нанесення першого шару.',s1t:'Внутрішнє фарбування',s1d:'Кімнати, коридори, сходи, кухні та вітальні.',s2t:'Зовнішнє фарбування',s2d:'Стіни та зовнішні поверхні, підготовлені для довговічного покриття.',s3t:'Стіни та стелі',s3d:'Оновлення, зміна кольору та акуратні підфарбовування.',s4t:'Дерев’яні елементи',s4d:'Двері, рами, плінтуси та інші пофарбовані дерев’яні поверхні.',s5t:'Оновлення орендованого житла',s5d:'Чисте та ефективне оновлення між орендарями або перед продажем.',s6t:'Підготовка та дрібний ремонт',s6d:'Шпаклювання, шліфування та підготовка поверхні перед фарбуванням.',processTitle:'Якісне покриття починається ще до фарбування.',processLead:'Правило просте: спочатку підготувати поверхню, потім використати правильний матеріал і нанести його акуратно.',p1t:'Підготовка',p1d:'Заповнити нерівності, відшліфувати, очистити та захистити простір навколо.',p2t:'Ґрунтування',p2d:'Використати відповідну ґрунтовку там, де вона потрібна.',p3t:'Фініш',p3d:'Нанести правильну фарбу чистими, рівними шарами.',aboutEyebrow:'Про Ахмеда',aboutTitle:'Просто, охайно, надійно.',aboutCopy:'Ахмед працює просто: захищає приміщення, правильно готує поверхні, акуратно фарбує і залишає після себе порядок.',contactEyebrow:'Отримати оцінку',contactTitle:'Потрібно освіжити кімнату, будинок або орендоване житло?',contactCopy:'Зателефонуйте Ахмеду або напишіть у WhatsApp. Кілька фотографій та місце роботи допоможуть швидко дати попередню оцінку.',contactLabel:'Телефон / WhatsApp',contactPlaceholder:'Номер Ахмеда буде додано',footer:'Фарбування та оздоблення.'}
     };
-
-    const select = document.getElementById('language');
-    const englishReset = document.getElementById('english-reset');
-    const saved = localStorage.getItem('painter-language');
-    const initial = saved && translations[saved] ? saved : 'en';
-
-    function setLanguage(lang) {
-      const dictionary = translations[lang] || translations.en;
-      document.documentElement.lang = lang;
-      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-      select.value = lang;
-
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.dataset.i18n;
-        if (dictionary[key]) el.textContent = dictionary[key];
-      });
-
-      localStorage.setItem('painter-language', lang);
-    }
-
-    select.addEventListener('change', event => setLanguage(event.target.value));
-    englishReset.addEventListener('click', () => setLanguage('en'));
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-    setLanguage(initial);
+    const select=document.getElementById('language');
+    const englishReset=document.getElementById('english-reset');
+    const saved=localStorage.getItem('painter-language');
+    const initial=saved&&translations[saved]?saved:'en';
+    function setLanguage(lang){const dictionary=translations[lang]||translations.en;document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';select.value=lang;document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.dataset.i18n;if(dictionary[key])el.textContent=dictionary[key]});localStorage.setItem('painter-language',lang)}
+    select.addEventListener('change',e=>setLanguage(e.target.value));englishReset.addEventListener('click',()=>setLanguage('en'));document.getElementById('year').textContent=new Date().getFullYear();setLanguage(initial);
   </script>
 </body>
 </html>
