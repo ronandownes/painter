@@ -1,158 +1,36 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="AH Painting — painting and decorating.">
+  <meta name="description" content="AH Painting — Simple painting and decorating, with quality, respect and straightforward communication.">
   <title>AH Painting</title>
   <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=3">
-  <link rel="stylesheet" href="./styles.css?v=4">
+  <link rel="stylesheet" href="./styles.css?v=5">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#top" aria-label="AH Painting — Home">
-      <img src="./ah-painting-logo.svg" alt="AH Painting">
-    </a>
-
-    <nav class="topnav" aria-label="Main navigation">
-      <div class="navitem">
-        <a class="navlabel" href="#services" data-i18n="navServices">Services</a>
-        <button class="navtoggle" type="button" aria-expanded="false" aria-label="Open Services menu">▾</button>
-        <div class="dropmenu">
-          <a href="#services" data-i18n="dropPainting">Painting & decorating</a>
-          <a href="#services" data-i18n="dropJobs">Rooms, homes and property work</a>
-        </div>
-      </div>
-
-      <div class="navitem">
-        <a class="navlabel" href="#gallery" data-i18n="navGallery">Gallery</a>
-        <button class="navtoggle" type="button" aria-expanded="false" aria-label="Open Gallery menu">▾</button>
-        <div class="dropmenu">
-          <a href="#gallery" data-i18n="dropBeforeAfter">Before & after</a>
-          <a href="#gallery" data-i18n="dropProjects">Project photos</a>
-        </div>
-      </div>
-
-      <div class="navitem">
-        <a class="navlabel" href="#faq" data-i18n="navFaq">FAQs</a>
-        <button class="navtoggle" type="button" aria-expanded="false" aria-label="Open FAQ menu">▾</button>
-        <div class="dropmenu">
-          <a href="#travel" data-i18n="dropTravel">Travel area</a>
-          <a href="#quote" data-i18n="dropQuote">Getting a quote</a>
-          <a href="#paint" data-i18n="dropPaint">Paint & materials</a>
-        </div>
-      </div>
-
-      <div class="navitem">
-        <a class="navlabel" href="#contact" data-i18n="navContact">Contact</a>
-      </div>
-
-      <select id="language" class="language" aria-label="Choose language">
-        <option value="en">English</option>
-        <option value="ar">العربية</option>
-        <option value="pl">Polski</option>
-        <option value="lt">Lietuvių</option>
-        <option value="ro">Română</option>
-        <option value="uk">Українська</option>
-      </select>
-    </nav>
-  </header>
-
-  <main class="page-stage" id="top">
-    <article class="paper">
-      <p class="kicker" data-i18n="kicker">PAINTING & DECORATING</p>
-      <h1>AH Painting</h1>
-      <p class="intro" data-i18n="intro">Simple, tidy painting and decorating. Tell Ahmed what you need and he’ll tell you if the job is a good fit.</p>
-
-      <div class="primary-actions">
-        <a class="call-button" href="#contact" data-i18n="callAhmed">Call / WhatsApp Ahmed</a>
-        <a class="plain-button" href="#gallery" data-i18n="seeGallery">See gallery</a>
-      </div>
-
-      <div class="four-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-
-      <section id="services" class="page-section">
-        <div class="section-heading">
-          <h2 data-i18n="servicesTitle">Painting & decorating</h2>
-          <button class="section-toggle" type="button" aria-expanded="true" data-i18n="hide">Hide</button>
-        </div>
-        <div class="section-content">
-          <p data-i18n="servicesCopy">Need a room, home, rental property or another space painted? Give Ahmed a call, describe the job and he’ll tell you what he can do.</p>
-          <div class="simple-grid">
-            <div><strong data-i18n="s1">Interior</strong><span data-i18n="s1d">Walls, ceilings and general decorating enquiries.</span></div>
-            <div><strong data-i18n="s2">Exterior</strong><span data-i18n="s2d">Ask Ahmed about the outside work you have in mind.</span></div>
-            <div><strong data-i18n="s3">Property refresh</strong><span data-i18n="s3d">Rooms, homes, rentals and smaller jobs can all be discussed.</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="gallery" class="page-section">
-        <div class="section-heading">
-          <h2 data-i18n="galleryTitle">Gallery</h2>
-          <button class="section-toggle" type="button" aria-expanded="true" data-i18n="hide">Hide</button>
-        </div>
-        <div class="section-content">
-          <p class="muted" data-i18n="galleryCopy">Before-and-after project photos can go here. The split layout is ready for Ahmed’s own photographs.</p>
-          <div class="gallery-grid" aria-label="Before and after gallery placeholders">
-            <div class="split-photo p1"><span>Before</span><span>After</span></div>
-            <div class="split-photo p2"><span>Before</span><span>After</span></div>
-            <div class="split-photo p3"><span>Before</span><span>After</span></div>
-            <div class="split-photo p4"><span>Before</span><span>After</span></div>
-            <div class="split-photo p5"><span>Before</span><span>After</span></div>
-            <div class="split-photo p6"><span>Before</span><span>After</span></div>
-            <div class="split-photo p7"><span>Before</span><span>After</span></div>
-            <div class="split-photo p8"><span>Before</span><span>After</span></div>
-            <div class="split-photo p9"><span>Before</span><span>After</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="faq" class="page-section">
-        <div class="section-heading">
-          <h2 data-i18n="faqTitle">Frequently asked questions</h2>
-          <button class="section-toggle" type="button" aria-expanded="true" data-i18n="hide">Hide</button>
-        </div>
-        <div class="section-content faq-list">
-          <details id="travel">
-            <summary data-i18n="fq1">How far are you prepared to travel?</summary>
-            <p data-i18n="fa1">Tell Ahmed where the job is and he’ll let you know if it is within his normal working area.</p>
-          </details>
-          <details id="quote">
-            <summary data-i18n="fq2">How do I get a quote?</summary>
-            <p data-i18n="fa2">Call or WhatsApp Ahmed with a short description of the job. Photos and the location are useful too.</p>
-          </details>
-          <details>
-            <summary data-i18n="fq3">Can I send photos first?</summary>
-            <p data-i18n="fa3">Yes. Photos are a simple way to show the room, surface or area you want painted before discussing the job.</p>
-          </details>
-          <details id="paint">
-            <summary data-i18n="fq4">Who supplies the paint?</summary>
-            <p data-i18n="fa4">Ask Ahmed when you speak. Paint and materials can be discussed for each individual job.</p>
-          </details>
-          <details>
-            <summary data-i18n="fq5">How long will the work take?</summary>
-            <p data-i18n="fa5">That depends on the size of the job and the preparation needed. Ahmed can give you a better idea once he knows what is involved.</p>
-          </details>
-          <details>
-            <summary data-i18n="fq6">What should I send when I contact you?</summary>
-            <p data-i18n="fa6">The location, a few photos and a short description are the easiest starting point.</p>
-          </details>
-        </div>
-      </section>
-
-      <section id="contact" class="page-section contact-section">
-        <div class="section-heading">
-          <h2 data-i18n="contactTitle">Give Ahmed a call</h2>
-        </div>
-        <p data-i18n="contactCopy">The quickest way to start is to call or WhatsApp Ahmed and tell him what you need.</p>
-        <div class="contact-placeholder">
-          <small data-i18n="phoneLabel">Phone / WhatsApp</small>
-          <strong data-i18n="phonePlaceholder">Ahmed’s number to be added</strong>
-        </div>
-      </section>
-    </article>
-  </main>
-
-  <script src="./app.js?v=4"></script>
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="AH Painting — Home"><img src="./ah-painting-logo.svg" alt="AH Painting"></a>
+  <nav class="topnav" aria-label="Main navigation">
+    <div class="navitem"><a class="navlabel" href="services.html">Services</a><button class="navtoggle" type="button" aria-expanded="false">▾</button><div class="dropmenu"><a href="services.html#residential-interior">Residential interior</a><a href="services.html#residential-exterior">Residential exterior</a><a href="services.html#commercial">Commercial</a><a href="services.html#other-work">Other work</a></div></div>
+    <div class="navitem"><a class="navlabel" href="gallery.html">Gallery</a><button class="navtoggle" type="button" aria-expanded="false">▾</button><div class="dropmenu"><a href="gallery.html#before-after">Before &amp; after</a><a href="gallery.html#project-photos">Project photos</a></div></div>
+    <div class="navitem"><a class="navlabel" href="guidance.html">Guidance</a><button class="navtoggle" type="button" aria-expanded="false">▾</button><div class="dropmenu"><a href="guidance.html#quality">Quality</a><a href="guidance.html#home">Your home</a><a href="guidance.html#colour">Colour &amp; finish</a><a href="guidance.html#preparation">Preparation</a></div></div>
+    <div class="navitem"><a class="navlabel" href="faq.html">FAQs</a><button class="navtoggle" type="button" aria-expanded="false">▾</button><div class="dropmenu"><a href="faq.html#travel">Travel area</a><a href="faq.html#quote">Getting a quote</a><a href="faq.html#photos">Sending photos</a><a href="faq.html#materials">Paint &amp; materials</a></div></div>
+    <div class="navitem"><a class="navlabel" href="suppliers.html">Suppliers</a></div>
+    <div class="navitem"><a class="navlabel" href="technology.html">Technology</a></div>
+    <div class="navitem"><a class="navlabel" href="contact.html">Contact</a></div>
+  </nav>
+</header>
+<main class="page-stage"><article class="paper">
+  <p class="kicker">PAINTING &amp; DECORATING</p>
+  <h1>AH Painting</h1>
+  <p class="intro">Simple painting and decorating, with quality, respect and straightforward communication.</p>
+  <div class="four-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <blockquote class="quality-quote">“Quality is remembered long after price is forgotten.”</blockquote>
+  <p class="source-note">A version of this saying is widely associated with Aldo Gucci and the tradition of valuing workmanship over the cheapest initial price.</p>
+  <p class="philosophy"><strong>AH Painting’s idea is simple:</strong> good work should respect the person, the home and the finish. Clear communication, careful preparation and dignity in how the job is done matter as much as the final colour.</p>
+  <div class="home-links"><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="guidance.html">Guidance</a><a href="faq.html">FAQs</a><a href="contact.html" class="primary-link">Call / WhatsApp Ahmed</a></div>
+</article></main>
+<script src="./app.js?v=5"></script>
 </body>
 </html>
