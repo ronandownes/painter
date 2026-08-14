@@ -4,5 +4,15 @@ const brand=document.querySelector('.brand');if(brand){brand.innerHTML='<span cl
 document.title=document.title.replaceAll('AH Painting','AS Painting');
 const meta=document.querySelector('meta[name="description"]');if(meta)meta.content=meta.content.replaceAll('AH Painting','AS Painting');
 const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);nodes.forEach(n=>{n.nodeValue=n.nodeValue.replaceAll('AH PAINTING','AS PAINTING').replaceAll('AH Painting','AS Painting')});
-document.querySelectorAll('.navtoggle').forEach(button=>{button.addEventListener('click',e=>{e.stopPropagation();const item=button.closest('.navitem');const open=item.classList.toggle('is-open');button.setAttribute('aria-expanded',String(open));document.querySelectorAll('.navitem.is-open').forEach(other=>{if(other!==item){other.classList.remove('is-open');const b=other.querySelector('.navtoggle');if(b)b.setAttribute('aria-expanded','false')}})});});
-document.addEventListener('click',e=>{if(!e.target.closest('.navitem'))document.querySelectorAll('.navitem.is-open').forEach(item=>{item.classList.remove('is-open');const b=item.querySelector('.navtoggle');if(b)b.setAttribute('aria-expanded','false')})});
+
+/* Natural desktop navigation: the heading is the real page link; hovering or keyboard focus reveals its sections. */
+const navStyle=document.createElement('style');
+navStyle.textContent=`
+.navitem{grid-template-columns:1fr!important}
+.navtoggle{display:none!important}
+@media (min-width:1051px) and (hover:hover){
+  .navitem:hover>.dropmenu,.navitem:focus-within>.dropmenu{display:block}
+  .navitem:hover>.navlabel,.navitem:focus-within>.navlabel{background:#f8f9fa;color:#174ea6}
+}
+`;
+document.head.appendChild(navStyle);
