@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Painting Gallery Limerick | Before & After | AS Painting</title>
-  <meta name="description" content="See interior and exterior painting examples for AS Painting in Limerick, including living room painting and exterior house painting before-and-after views.">
+  <meta name="description" content="Interior and exterior painting examples for AS Painting in Limerick, including living room painting, walls, ceilings, coving, woodwork and exterior house painting.">
   <link rel="canonical" href="https://ronandownes.github.io/painting/gallery.html">
   <meta property="og:title" content="Painting Gallery Limerick | AS Painting">
   <meta property="og:description" content="Interior and exterior painting examples for AS Painting in Limerick.">
@@ -13,23 +13,22 @@
   <link rel="icon" type="image/svg+xml" href="./as-favicon.svg?v=2">
   <link rel="stylesheet" href="./styles.css?v=6">
   <style>
-    .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:18px}
+    .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:720px;margin:18px auto 0}
     .project-card{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
-    .gallery-image-button{display:block;width:100%;border:0;padding:0;background:#f1f3f4;cursor:zoom-in}
-    .gallery-photo{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
-    .project-info{padding:14px 14px 16px}
-    .project-info h3{margin:0 0 4px;font-size:1.04rem}
-    .project-info p{margin:0 0 12px!important;color:var(--muted);font-size:.88rem!important}
-    .view-switch{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
-    .view-switch button{border:0;border-right:1px solid var(--line);background:#fff;padding:7px 13px;cursor:pointer;font-weight:700;color:#3c4043}
-    .view-switch button:last-child{border-right:0}
-    .view-switch button.active{background:#202124;color:#fff}
-    .gallery-dialog{border:0;padding:0;background:transparent;max-width:min(1100px,94vw);max-height:94vh}
-    .gallery-dialog::backdrop{background:rgba(0,0,0,.78)}
-    .lightbox-wrap{position:relative;background:#111;padding:10px;border-radius:8px}
-    .lightbox-wrap img{display:block;max-width:calc(94vw - 20px);max-height:calc(94vh - 20px);width:auto;height:auto}
-    .lightbox-close{position:absolute;right:16px;top:16px;border:0;border-radius:50%;width:38px;height:38px;background:rgba(255,255,255,.92);font-size:1.25rem;cursor:pointer}
-    @media(max-width:700px){.project-grid{grid-template-columns:1fr;gap:18px}.project-info{padding:12px}.view-switch{width:100%}.view-switch button{flex:1}}
+    .project-card h3{margin:0;padding:13px 14px 5px;font-size:1rem}
+    .project-card .project-copy{margin:0!important;padding:0 14px 12px;color:var(--muted);font-size:.86rem!important;line-height:1.45}
+    .photo-state{position:absolute;opacity:0;pointer-events:none}
+    .photo-stage{background:#f1f3f4;aspect-ratio:4/3;overflow:hidden}
+    .photo-link{display:none;width:100%;height:100%;cursor:zoom-in}
+    .photo-link img{display:block;width:100%;height:100%;object-fit:cover}
+    .before-radio:checked ~ .photo-stage .before-photo{display:block}
+    .after-radio:checked ~ .photo-stage .after-photo{display:block}
+    .view-switch{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+    .view-switch label{padding:9px 12px;text-align:center;cursor:pointer;font-size:.86rem;font-weight:700;background:#fff;color:#3c4043;user-select:none}
+    .view-switch label+label{border-left:1px solid var(--line)}
+    .before-radio:checked ~ .view-switch .before-label,.after-radio:checked ~ .view-switch .after-label{background:#202124;color:#fff}
+    .gallery-note{max-width:720px;margin:0 auto 14px!important;color:var(--muted)}
+    @media(max-width:700px){.project-grid{grid-template-columns:1fr;max-width:430px}.project-card h3{font-size:1.02rem}}
   </style>
 </head>
 <body>
@@ -37,83 +36,43 @@
 <main class="page-stage"><article class="paper">
   <p class="kicker">AS PAINTING · LIMERICK</p>
   <h1>Painting gallery</h1>
-  <p class="intro">Large, simple before-and-after views for interior and exterior painting. Use the buttons to switch the photograph; click the photograph to see it larger.</p>
+  <p class="intro">Interior and exterior painting, from walls and ceilings to coving, doors, skirting and exterior masonry.</p>
 
   <section id="before-after" class="answer-section">
     <h2>Before &amp; after</h2>
-    <p class="muted">Two visual examples for now while project photographs are being gathered.</p>
+    <p class="gallery-note">Choose Before or After on each project. Click the photograph to open it on its own.</p>
     <div class="project-grid">
-      <article class="project-card" data-project="living-room">
-        <button class="gallery-image-button" type="button" aria-label="Open living room painting image larger">
-          <img class="gallery-photo" src="gallery/living-room-after.svg" data-before="gallery/living-room-before.svg" data-after="gallery/living-room-after.svg" alt="Freshly repainted living room with clean walls, ceiling and coving — interior painting example for Limerick">
-        </button>
-        <div class="project-info">
-          <h3>Living room painting</h3>
-          <p>Walls, ceiling, coving and woodwork can change the feel of a room without changing the room itself.</p>
-          <div class="view-switch" aria-label="Living room before and after">
-            <button type="button" data-view="before" aria-pressed="false">Before</button>
-            <button type="button" data-view="after" class="active" aria-pressed="true">After</button>
-          </div>
+      <article class="project-card">
+        <h3>Living room · walls, ceiling &amp; coving</h3>
+        <p class="project-copy">Fresh paint and careful preparation can transform the same room without changing its character.</p>
+        <input class="photo-state before-radio" type="radio" id="living-before" name="living-view">
+        <input class="photo-state after-radio" type="radio" id="living-after" name="living-view" checked>
+        <div class="photo-stage">
+          <a class="photo-link before-photo" href="gallery/living-room-before.svg" target="_blank" rel="noopener"><img src="gallery/living-room-before.svg" alt="Living room before repainting with tired walls and preparation marks" loading="lazy"></a>
+          <a class="photo-link after-photo" href="gallery/living-room-after.svg" target="_blank" rel="noopener"><img src="gallery/living-room-after.svg" alt="Freshly painted living room with clean walls, ceiling and coving" loading="lazy"></a>
         </div>
+        <div class="view-switch"><label class="before-label" for="living-before">Before</label><label class="after-label" for="living-after">After</label></div>
       </article>
 
-      <article class="project-card" data-project="exterior">
-        <button class="gallery-image-button" type="button" aria-label="Open exterior house painting image larger">
-          <img class="gallery-photo" src="gallery/house-after.svg" data-before="gallery/house-before.svg" data-after="gallery/house-after.svg" alt="Freshly painted house exterior with clean masonry and dark trim — exterior painting example for Limerick">
-        </button>
-        <div class="project-info">
-          <h3>Exterior house painting</h3>
-          <p>Clean masonry, crisp trim and a carefully finished entrance can make the same house look completely refreshed.</p>
-          <div class="view-switch" aria-label="Exterior house before and after">
-            <button type="button" data-view="before" aria-pressed="false">Before</button>
-            <button type="button" data-view="after" class="active" aria-pressed="true">After</button>
-          </div>
+      <article class="project-card">
+        <h3>Exterior house painting</h3>
+        <p class="project-copy">Clean masonry, crisp trim and a carefully finished entrance can make the same house feel completely refreshed.</p>
+        <input class="photo-state before-radio" type="radio" id="house-before" name="house-view">
+        <input class="photo-state after-radio" type="radio" id="house-after" name="house-view" checked>
+        <div class="photo-stage">
+          <a class="photo-link before-photo" href="gallery/house-before.svg" target="_blank" rel="noopener"><img src="gallery/house-before.svg" alt="House exterior before repainting with weathered masonry and worn trim" loading="lazy"></a>
+          <a class="photo-link after-photo" href="gallery/house-after.svg" target="_blank" rel="noopener"><img src="gallery/house-after.svg" alt="Freshly painted house exterior with clean masonry and dark trim" loading="lazy"></a>
         </div>
+        <div class="view-switch"><label class="before-label" for="house-before">Before</label><label class="after-label" for="house-after">After</label></div>
       </article>
     </div>
   </section>
 
   <section id="project-photos" class="answer-section">
-    <h2>Project photographs</h2>
-    <p>As photographs come in, this can grow slowly: bedrooms, living rooms, kitchens, hallways and exterior painting. Four strong projects will usually look better than a wall of small photographs.</p>
+    <h2>More painting work</h2>
+    <p>Bedrooms, kitchens, hallways, doors, skirting boards, coving and detailed woodwork can be added here as the gallery grows. A small number of strong photographs is more useful than dozens of tiny thumbnails.</p>
   </section>
 </article></main>
-
-<dialog id="gallery-dialog" class="gallery-dialog">
-  <div class="lightbox-wrap">
-    <button class="lightbox-close" type="button" aria-label="Close image">×</button>
-    <img alt="">
-  </div>
-</dialog>
-
-<script src="./app.js?v=6"></script>
-<script>
-  document.querySelectorAll('.project-card').forEach(card=>{
-    const img=card.querySelector('.gallery-photo');
-    const before=card.querySelector('[data-view="before"]');
-    const after=card.querySelector('[data-view="after"]');
-    const setView=view=>{
-      img.src=img.dataset[view];
-      const isBefore=view==='before';
-      before.classList.toggle('active',isBefore);
-      after.classList.toggle('active',!isBefore);
-      before.setAttribute('aria-pressed',String(isBefore));
-      after.setAttribute('aria-pressed',String(!isBefore));
-      if(card.dataset.project==='living-room') img.alt=isBefore?'Living room before repainting, showing tired walls and preparation marks':'Freshly repainted living room with clean walls, ceiling and coving — interior painting example for Limerick';
-      if(card.dataset.project==='exterior') img.alt=isBefore?'House exterior before repainting, showing weathered masonry and worn trim':'Freshly painted house exterior with clean masonry and dark trim — exterior painting example for Limerick';
-    };
-    before.addEventListener('click',()=>setView('before'));
-    after.addEventListener('click',()=>setView('after'));
-    card.querySelector('.gallery-image-button').addEventListener('click',()=>{
-      const dialog=document.getElementById('gallery-dialog');
-      const large=dialog.querySelector('img');
-      large.src=img.src; large.alt=img.alt;
-      if(dialog.showModal) dialog.showModal();
-    });
-  });
-  const dialog=document.getElementById('gallery-dialog');
-  dialog.querySelector('.lightbox-close').addEventListener('click',()=>dialog.close());
-  dialog.addEventListener('click',e=>{if(e.target===dialog) dialog.close()});
-</script>
+<script src="./app.js?v=7"></script>
 </body>
 </html>
