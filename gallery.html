@@ -13,21 +13,24 @@
   <link rel="icon" type="image/svg+xml" href="./as-favicon.svg?v=2">
   <link rel="stylesheet" href="./styles.css?v=6">
   <style>
-    .gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:900px;margin:22px auto 0}
-    .gallery-card{margin:0;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff}
-    .gallery-card>a{display:block;text-decoration:none;color:inherit;background:#f1f3f4}
-    .gallery-card img{display:block;width:100%;aspect-ratio:8/3;object-fit:cover}
-    .ba-labels{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);background:#fff}
-    .ba-labels span{padding:7px 10px;text-align:center;font-size:.78rem;font-weight:700;color:#5f6368;text-transform:uppercase;letter-spacing:.06em}
-    .ba-labels span+span{border-left:1px solid var(--line)}
-    .gallery-copy{padding:13px 14px 15px}
-    .gallery-copy h3{margin:0 0 5px;font-size:1.02rem}
-    .gallery-copy p{margin:0!important;color:var(--muted);font-size:.88rem!important;line-height:1.48}
-    .gallery-card>a:hover img{opacity:.96}
-    .gallery-foot{max-width:900px;margin:26px auto 0}
-    @media(max-width:720px){
-      .gallery-grid{grid-template-columns:1fr;max-width:520px;gap:18px}
-      .gallery-card img{aspect-ratio:8/3}
+    .gallery-stack{max-width:760px;margin:24px auto 0;display:grid;gap:46px}
+    .project{padding-bottom:34px;border-bottom:1px solid var(--line)}
+    .project:last-child{border-bottom:0;padding-bottom:0}
+    .project h2{margin:0 0 7px;font-size:1.18rem}
+    .project-copy{margin:0 0 18px!important;color:var(--muted);font-size:.94rem!important}
+    .shot{margin:0 0 18px}
+    .shot:last-child{margin-bottom:0}
+    .shot-label{display:block;margin:0 0 7px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#5f6368}
+    .crop{position:relative;overflow:hidden;aspect-ratio:4/3;border:1px solid var(--line);border-radius:9px;background:#f1f3f4}
+    .crop img{position:absolute;top:0;height:100%;width:200%;max-width:none;display:block}
+    .crop.before img{left:0}
+    .crop.after img{left:-100%}
+    .shot figcaption{margin-top:7px;color:var(--muted);font-size:.83rem;line-height:1.45}
+    .gallery-foot{max-width:760px;margin:34px auto 0}
+    @media(max-width:620px){
+      .gallery-stack{max-width:100%;gap:36px}
+      .project{padding-bottom:28px}
+      .crop{border-radius:7px}
     }
   </style>
 </head>
@@ -36,7 +39,7 @@
   <a class="brand" href="index.html" aria-label="AS Painting — Home"><img src="./as-painting-logo.svg" alt="AS Painting"></a>
   <nav class="topnav" aria-label="Main navigation">
     <div class="navitem"><a class="navlabel" href="services.html">Services</a><button class="navtoggle" type="button" aria-expanded="false">▾</button><div class="dropmenu"><a href="services.html#residential-interior">Residential interior</a><a href="services.html#residential-exterior">Residential exterior</a><a href="services.html#commercial">Commercial</a><a href="services.html#other-work">Other work</a><a href="services.html#areas">Areas covered</a></div></div>
-    <div class="navitem"><a class="navlabel" href="gallery.html">Gallery</a><button class="navtoggle" type="button" aria-expanded="false">▾</button><div class="dropmenu"><a href="#projects">Before &amp; after</a><a href="#details">Painting details</a></div></div>
+    <div class="navitem"><a class="navlabel" href="gallery.html">Gallery</a><button class="navtoggle" type="button" aria-expanded="false">▾</button><div class="dropmenu"><a href="#living-room">Living room</a><a href="#exterior">Exterior</a><a href="#hallway">Hallway &amp; woodwork</a><a href="#bedroom">Bedroom</a></div></div>
     <div class="navitem"><a class="navlabel" href="guidance.html">Guidance</a><button class="navtoggle" type="button" aria-expanded="false">▾</button><div class="dropmenu"><a href="guidance.html#quality">Quality</a><a href="guidance.html#home">Your home</a><a href="guidance.html#colour">Colour &amp; finish</a><a href="guidance.html#preparation">Preparation</a><a href="guidance.html#diy">Where DIY goes wrong</a></div></div>
     <div class="navitem"><a class="navlabel" href="faq.html">FAQs</a><button class="navtoggle" type="button" aria-expanded="false">▾</button><div class="dropmenu"><a href="faq.html#travel">Travel area</a><a href="faq.html#quote">Getting a quote</a><a href="faq.html#photos">Sending photos</a><a href="faq.html#materials">Paint &amp; materials</a></div></div>
     <div class="navitem"><a class="navlabel" href="suppliers.html">Suppliers</a></div>
@@ -48,46 +51,39 @@
 <main class="page-stage"><article class="paper">
   <p class="kicker">AS PAINTING · LIMERICK</p>
   <h1>Painting gallery</h1>
-  <p class="intro">Before and after views of interior and exterior painting. Four strong examples are easier to judge than a wall of tiny photographs.</p>
+  <p class="intro">A simple before-and-after gallery. Each project is shown one image at a time — before first, then after underneath.</p>
 
-  <section id="projects" class="answer-section">
-    <h2>Before &amp; after</h2>
-    <div class="gallery-grid">
-      <figure class="gallery-card">
-        <a href="gallery/living-room-before-after.jpg" target="_blank" rel="noopener" aria-label="Open living room before and after painting image">
-          <img src="gallery/living-room-before-after.jpg" alt="Living room before and after painting in Limerick showing walls ceiling coving and woodwork" loading="eager" width="960" height="360">
-          <div class="ba-labels"><span>Before</span><span>After</span></div>
-        </a>
-        <figcaption class="gallery-copy"><h3>Living room · walls, ceiling &amp; coving</h3><p>Fresh walls, a clean ceiling, crisp coving and carefully finished woodwork can change the whole feel of a room.</p></figcaption>
-      </figure>
+  <section class="gallery-stack" aria-label="Before and after painting examples">
+    <article class="project" id="living-room">
+      <h2>Living room · walls, ceiling &amp; coving</h2>
+      <p class="project-copy">Preparation, clean cutting-in, fresh walls, a bright ceiling, crisp coving and carefully finished woodwork.</p>
+      <figure class="shot"><span class="shot-label">Before</span><div class="crop before"><img src="gallery/living-room-before-after.jpg?v=vertical2" alt="Living room before painting in Limerick"></div><figcaption>Walls, ceiling, coving and woodwork before the finish is refreshed.</figcaption></figure>
+      <figure class="shot"><span class="shot-label">After</span><div class="crop after"><img src="gallery/living-room-before-after.jpg?v=vertical2" alt="Living room after painting in Limerick"></div><figcaption>A cleaner, brighter finish across the room.</figcaption></figure>
+    </article>
 
-      <figure class="gallery-card">
-        <a href="gallery/house-before-after.jpg" target="_blank" rel="noopener" aria-label="Open exterior house before and after painting image">
-          <img src="gallery/house-before-after.jpg" alt="House exterior before and after painting in Limerick showing refreshed masonry trim and entrance" loading="eager" width="960" height="360">
-          <div class="ba-labels"><span>Before</span><span>After</span></div>
-        </a>
-        <figcaption class="gallery-copy"><h3>Exterior house painting</h3><p>Exterior masonry, trim and the entrance can be refreshed while keeping the same house and its character.</p></figcaption>
-      </figure>
+    <article class="project" id="exterior">
+      <h2>Exterior house painting</h2>
+      <p class="project-copy">Exterior masonry and trim can be refreshed without changing the character of the house.</p>
+      <figure class="shot"><span class="shot-label">Before</span><div class="crop before"><img src="gallery/house-before-after.jpg?v=vertical2" alt="House exterior before painting in Limerick"></div><figcaption>Weathered exterior masonry and trim before repainting.</figcaption></figure>
+      <figure class="shot"><span class="shot-label">After</span><div class="crop after"><img src="gallery/house-before-after.jpg?v=vertical2" alt="House exterior after painting in Limerick"></div><figcaption>The same house with the exterior finish refreshed.</figcaption></figure>
+    </article>
 
-      <figure class="gallery-card">
-        <a href="gallery/hallway-before-after.jpg" target="_blank" rel="noopener" aria-label="Open hallway before and after painting image">
-          <img src="gallery/hallway-before-after.jpg" alt="Hallway before and after painting showing doors frames skirting boards and painted woodwork" loading="lazy" width="960" height="360">
-          <div class="ba-labels"><span>Before</span><span>After</span></div>
-        </a>
-        <figcaption class="gallery-copy"><h3>Hallway · doors, skirting &amp; woodwork</h3><p>Hallways bring walls, doors, frames, architraves and skirting together, so preparation and clean lines matter.</p></figcaption>
-      </figure>
+    <article class="project" id="hallway">
+      <h2>Hallway · doors, skirting &amp; woodwork</h2>
+      <p class="project-copy">Hallways bring walls, doors, frames, architraves and skirting together, so preparation and clean lines matter.</p>
+      <figure class="shot"><span class="shot-label">Before</span><div class="crop before"><img src="gallery/hallway-before-after.jpg?v=vertical2" alt="Hallway before painting showing doors frames skirting and woodwork"></div><figcaption>Hallway surfaces and painted woodwork before refreshing.</figcaption></figure>
+      <figure class="shot"><span class="shot-label">After</span><div class="crop after"><img src="gallery/hallway-before-after.jpg?v=vertical2" alt="Hallway after painting showing doors frames skirting and woodwork"></div><figcaption>Clean lines across walls, trim, doors and skirting.</figcaption></figure>
+    </article>
 
-      <figure class="gallery-card">
-        <a href="gallery/bedroom-before-after.jpg" target="_blank" rel="noopener" aria-label="Open bedroom before and after painting image">
-          <img src="gallery/bedroom-before-after.jpg" alt="Bedroom before and after painting showing freshly painted walls ceiling trim and woodwork" loading="lazy" width="480" height="180">
-          <div class="ba-labels"><span>Before</span><span>After</span></div>
-        </a>
-        <figcaption class="gallery-copy"><h3>Bedroom · walls, ceiling &amp; trim</h3><p>A well-prepared bedroom can be transformed with a restrained colour change and a clean, consistent finish.</p></figcaption>
-      </figure>
-    </div>
+    <article class="project" id="bedroom">
+      <h2>Bedroom · walls, ceiling &amp; trim</h2>
+      <p class="project-copy">A well-prepared bedroom can be transformed with a restrained colour change and a consistent finish.</p>
+      <figure class="shot"><span class="shot-label">Before</span><div class="crop before"><img src="gallery/bedroom-before-after.jpg?v=vertical2" alt="Bedroom before painting in Limerick"></div><figcaption>Bedroom before the walls, ceiling and trim are refreshed.</figcaption></figure>
+      <figure class="shot"><span class="shot-label">After</span><div class="crop after"><img src="gallery/bedroom-before-after.jpg?v=vertical2" alt="Bedroom after painting in Limerick"></div><figcaption>Finished bedroom with a cleaner, more consistent appearance.</figcaption></figure>
+    </article>
   </section>
 
-  <section id="details" class="answer-section gallery-foot">
+  <section class="answer-section gallery-foot">
     <h2>Painting details</h2>
     <p>Walls and ceilings are only part of the finish. Coving, cornices, doors, frames, architraves, skirting boards and other painted woodwork can make a major difference to how complete a room feels.</p>
   </section>
