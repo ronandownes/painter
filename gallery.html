@@ -3,35 +3,64 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Painting Gallery Limerick | Before & After | AS Painting</title>
-  <meta name="description" content="Before and after painting examples from AS Painting in Limerick: living rooms, walls, ceilings, coving, exterior masonry, hallways, doors, skirting, woodwork and bedrooms.">
+  <title>Painting Gallery Limerick | AS Painting</title>
+  <meta name="description" content="Explore recent AS Painting work in Limerick including living rooms, bedrooms, hallways, woodwork and exterior painting. Open each project for a closer look.">
   <link rel="canonical" href="https://ronandownes.github.io/painting/gallery.html">
   <meta property="og:title" content="Painting Gallery Limerick | AS Painting">
-  <meta property="og:description" content="Before and after interior and exterior painting examples in Limerick.">
+  <meta property="og:description" content="Explore recent interior and exterior painting work by AS Painting in Limerick.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ronandownes.github.io/painting/gallery.html">
   <link rel="icon" type="image/svg+xml" href="./as-favicon.svg?v=2">
   <link rel="stylesheet" href="./styles.css?v=6">
   <style>
-    .gallery-stack{max-width:760px;margin:24px auto 0;display:grid;gap:46px}
-    .project{padding-bottom:34px;border-bottom:1px solid var(--line)}
-    .project:last-child{border-bottom:0;padding-bottom:0}
-    .project h2{margin:0 0 7px;font-size:1.18rem}
-    .project-copy{margin:0 0 18px!important;color:var(--muted);font-size:.94rem!important}
-    .shot{margin:0 0 18px}
-    .shot:last-child{margin-bottom:0}
-    .shot-label{display:block;margin:0 0 7px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#5f6368}
-    .crop{position:relative;overflow:hidden;aspect-ratio:4/3;border:1px solid var(--line);border-radius:9px;background:#f1f3f4}
-    .crop img{position:absolute;top:0;height:100%;width:200%;max-width:none;display:block}
-    .crop.before img{left:0}
-    .crop.after img{left:-100%}
-    .shot figcaption{margin-top:7px;color:var(--muted);font-size:.83rem;line-height:1.45}
-    .gallery-foot{max-width:760px;margin:34px auto 0}
-    @media(max-width:620px){
-      .gallery-stack{max-width:100%;gap:36px}
-      .project{padding-bottom:28px}
-      .crop{border-radius:7px}
+    .gallery-head{max-width:880px;margin:0 auto}
+    .gallery-intro{max-width:720px}
+    .gallery-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:28px 0 22px}
+    .filters{display:flex;gap:8px;flex-wrap:wrap}
+    .filter-btn{appearance:none;border:1px solid var(--line);background:#fff;color:#30343a;border-radius:999px;padding:9px 14px;font:inherit;font-size:.86rem;font-weight:700;cursor:pointer;transition:.18s ease}
+    .filter-btn:hover,.filter-btn:focus-visible{border-color:#8b949e;transform:translateY(-1px)}
+    .filter-btn.active{background:#202124;color:#fff;border-color:#202124}
+    .gallery-count{font-size:.85rem;color:var(--muted);white-space:nowrap}
+    .gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .gallery-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:0 8px 30px rgba(20,25,30,.05);transition:transform .2s ease,box-shadow .2s ease,opacity .2s ease}
+    .gallery-card:hover{transform:translateY(-3px);box-shadow:0 14px 35px rgba(20,25,30,.1)}
+    .gallery-card[hidden]{display:none}
+    .gallery-open{display:block;width:100%;padding:0;border:0;background:none;text-align:left;cursor:zoom-in;color:inherit}
+    .gallery-image-wrap{position:relative;overflow:hidden;background:#eef0f2;aspect-ratio:4/3}
+    .gallery-image-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+    .gallery-card:hover img{transform:scale(1.025)}
+    .view-badge{position:absolute;right:12px;bottom:12px;background:rgba(22,24,27,.84);color:#fff;border-radius:999px;padding:7px 10px;font-size:.75rem;font-weight:700;backdrop-filter:blur(7px)}
+    .gallery-copy{padding:15px 16px 17px}
+    .gallery-copy h2{margin:0 0 5px;font-size:1.04rem}
+    .gallery-copy p{margin:0!important;color:var(--muted);font-size:.88rem!important;line-height:1.5}
+    .gallery-note{margin-top:26px;padding:16px 18px;border:1px solid var(--line);border-radius:10px;background:#fafafa;color:var(--muted);font-size:.9rem}
+
+    .lightbox{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(9,11,14,.92)}
+    .lightbox.open{display:flex}
+    .lightbox-panel{position:relative;width:min(1100px,100%);max-height:92vh;display:grid;grid-template-rows:minmax(0,1fr) auto;background:#111418;border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;box-shadow:0 28px 90px rgba(0,0,0,.5)}
+    .lightbox-media{min-height:0;display:flex;align-items:center;justify-content:center;background:#080a0d}
+    .lightbox-media img{display:block;max-width:100%;max-height:78vh;object-fit:contain}
+    .lightbox-info{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:14px 18px;color:#fff}
+    .lightbox-title{font-weight:800}
+    .lightbox-sub{font-size:.82rem;color:#b8bec6;margin-top:2px}
+    .lightbox-close,.lightbox-nav{position:absolute;z-index:2;border:0;background:rgba(20,23,27,.78);color:#fff;cursor:pointer;backdrop-filter:blur(8px)}
+    .lightbox-close{top:12px;right:12px;width:42px;height:42px;border-radius:50%;font-size:1.4rem}
+    .lightbox-nav{top:50%;transform:translateY(-50%);width:44px;height:54px;border-radius:9px;font-size:1.45rem}
+    .lightbox-prev{left:12px}.lightbox-next{right:12px}
+    .lightbox-close:hover,.lightbox-nav:hover,.lightbox-close:focus-visible,.lightbox-nav:focus-visible{background:#fff;color:#111}
+    body.modal-open{overflow:hidden}
+
+    @media(max-width:720px){
+      .gallery-grid{grid-template-columns:1fr}
+      .gallery-toolbar{align-items:flex-start}
+      .gallery-card:hover{transform:none}
+      .lightbox{padding:10px}
+      .lightbox-panel{border-radius:10px}
+      .lightbox-media img{max-height:72vh}
+      .lightbox-info{padding:12px 14px}
+      .lightbox-nav{width:40px;height:50px}
     }
+    @media(prefers-reduced-motion:reduce){.gallery-card,.gallery-image-wrap img,.filter-btn{transition:none}}
   </style>
 </head>
 <body>
@@ -39,7 +68,7 @@
   <a class="brand" href="index.html" aria-label="AS Painting — Home"><img src="./as-painting-logo.svg" alt="AS Painting"></a>
   <nav class="topnav" aria-label="Main navigation">
     <div class="navitem"><a class="navlabel" href="services.html">Services</a><button class="navtoggle" type="button" aria-expanded="false">▾</button><div class="dropmenu"><a href="services.html#residential-interior">Residential interior</a><a href="services.html#residential-exterior">Residential exterior</a><a href="services.html#commercial">Commercial</a><a href="services.html#other-work">Other work</a><a href="services.html#areas">Areas covered</a></div></div>
-    <div class="navitem"><a class="navlabel" href="gallery.html">Gallery</a><button class="navtoggle" type="button" aria-expanded="false">▾</button><div class="dropmenu"><a href="#living-room">Living room</a><a href="#exterior">Exterior</a><a href="#hallway">Hallway &amp; woodwork</a><a href="#bedroom">Bedroom</a></div></div>
+    <div class="navitem"><a class="navlabel" href="gallery.html">Gallery</a></div>
     <div class="navitem"><a class="navlabel" href="guidance.html">Guidance</a><button class="navtoggle" type="button" aria-expanded="false">▾</button><div class="dropmenu"><a href="guidance.html#quality">Quality</a><a href="guidance.html#home">Your home</a><a href="guidance.html#colour">Colour &amp; finish</a><a href="guidance.html#preparation">Preparation</a><a href="guidance.html#diy">Where DIY goes wrong</a></div></div>
     <div class="navitem"><a class="navlabel" href="faq.html">FAQs</a><button class="navtoggle" type="button" aria-expanded="false">▾</button><div class="dropmenu"><a href="faq.html#travel">Travel area</a><a href="faq.html#quote">Getting a quote</a><a href="faq.html#photos">Sending photos</a><a href="faq.html#materials">Paint &amp; materials</a></div></div>
     <div class="navitem"><a class="navlabel" href="suppliers.html">Suppliers</a></div>
@@ -49,45 +78,146 @@
 </header>
 
 <main class="page-stage"><article class="paper">
-  <p class="kicker">AS PAINTING · LIMERICK</p>
-  <h1>Painting gallery</h1>
-  <p class="intro">A simple before-and-after gallery. Each project is shown one image at a time — before first, then after underneath.</p>
+  <div class="gallery-head">
+    <p class="kicker">AS PAINTING · LIMERICK</p>
+    <h1>Gallery</h1>
+    <p class="intro gallery-intro">A closer look at recent painting work. Browse by type, then open any project to view the image at full size.</p>
 
-  <section class="gallery-stack" aria-label="Before and after painting examples">
-    <article class="project" id="living-room">
-      <h2>Living room · walls, ceiling &amp; coving</h2>
-      <p class="project-copy">Preparation, clean cutting-in, fresh walls, a bright ceiling, crisp coving and carefully finished woodwork.</p>
-      <figure class="shot"><span class="shot-label">Before</span><div class="crop before"><img src="gallery/living-room-before-after.jpg?v=vertical2" alt="Living room before painting in Limerick"></div><figcaption>Walls, ceiling, coving and woodwork before the finish is refreshed.</figcaption></figure>
-      <figure class="shot"><span class="shot-label">After</span><div class="crop after"><img src="gallery/living-room-before-after.jpg?v=vertical2" alt="Living room after painting in Limerick"></div><figcaption>A cleaner, brighter finish across the room.</figcaption></figure>
-    </article>
+    <div class="gallery-toolbar" aria-label="Gallery controls">
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All work</button>
+        <button class="filter-btn" type="button" data-filter="interior" aria-pressed="false">Interiors</button>
+        <button class="filter-btn" type="button" data-filter="woodwork" aria-pressed="false">Woodwork</button>
+        <button class="filter-btn" type="button" data-filter="exterior" aria-pressed="false">Exteriors</button>
+      </div>
+      <div class="gallery-count" aria-live="polite"><span id="visibleCount">4</span> projects</div>
+    </div>
 
-    <article class="project" id="exterior">
-      <h2>Exterior house painting</h2>
-      <p class="project-copy">Exterior masonry and trim can be refreshed without changing the character of the house.</p>
-      <figure class="shot"><span class="shot-label">Before</span><div class="crop before"><img src="gallery/house-before-after.jpg?v=vertical2" alt="House exterior before painting in Limerick"></div><figcaption>Weathered exterior masonry and trim before repainting.</figcaption></figure>
-      <figure class="shot"><span class="shot-label">After</span><div class="crop after"><img src="gallery/house-before-after.jpg?v=vertical2" alt="House exterior after painting in Limerick"></div><figcaption>The same house with the exterior finish refreshed.</figcaption></figure>
-    </article>
+    <section class="gallery-grid" id="galleryGrid" aria-label="Painting projects">
+      <article class="gallery-card" data-category="interior" data-title="Living room" data-detail="Walls, ceiling, coving and trim">
+        <button class="gallery-open" type="button" aria-label="Open living room project image">
+          <div class="gallery-image-wrap"><img src="gallery/living-room-before-after.jpg?v=gallery3" alt="Living room painting project in Limerick" loading="eager"><span class="view-badge">View full image ↗</span></div>
+          <div class="gallery-copy"><h2>Living room</h2><p>Walls, ceiling, coving and trim brought together in one clean finish.</p></div>
+        </button>
+      </article>
 
-    <article class="project" id="hallway">
-      <h2>Hallway · doors, skirting &amp; woodwork</h2>
-      <p class="project-copy">Hallways bring walls, doors, frames, architraves and skirting together, so preparation and clean lines matter.</p>
-      <figure class="shot"><span class="shot-label">Before</span><div class="crop before"><img src="gallery/hallway-before-after.jpg?v=vertical2" alt="Hallway before painting showing doors frames skirting and woodwork"></div><figcaption>Hallway surfaces and painted woodwork before refreshing.</figcaption></figure>
-      <figure class="shot"><span class="shot-label">After</span><div class="crop after"><img src="gallery/hallway-before-after.jpg?v=vertical2" alt="Hallway after painting showing doors frames skirting and woodwork"></div><figcaption>Clean lines across walls, trim, doors and skirting.</figcaption></figure>
-    </article>
+      <article class="gallery-card" data-category="exterior" data-title="Exterior painting" data-detail="Masonry and exterior trim">
+        <button class="gallery-open" type="button" aria-label="Open exterior painting project image">
+          <div class="gallery-image-wrap"><img src="gallery/house-before-after.jpg?v=gallery3" alt="House exterior painting project in Limerick" loading="lazy"><span class="view-badge">View full image ↗</span></div>
+          <div class="gallery-copy"><h2>Exterior painting</h2><p>Exterior masonry and trim refreshed while keeping the character of the house.</p></div>
+        </button>
+      </article>
 
-    <article class="project" id="bedroom">
-      <h2>Bedroom · walls, ceiling &amp; trim</h2>
-      <p class="project-copy">A well-prepared bedroom can be transformed with a restrained colour change and a consistent finish.</p>
-      <figure class="shot"><span class="shot-label">Before</span><div class="crop before"><img src="gallery/bedroom-before-after.jpg?v=vertical2" alt="Bedroom before painting in Limerick"></div><figcaption>Bedroom before the walls, ceiling and trim are refreshed.</figcaption></figure>
-      <figure class="shot"><span class="shot-label">After</span><div class="crop after"><img src="gallery/bedroom-before-after.jpg?v=vertical2" alt="Bedroom after painting in Limerick"></div><figcaption>Finished bedroom with a cleaner, more consistent appearance.</figcaption></figure>
-    </article>
-  </section>
+      <article class="gallery-card" data-category="interior woodwork" data-title="Hallway & woodwork" data-detail="Doors, frames, architraves and skirting">
+        <button class="gallery-open" type="button" aria-label="Open hallway and woodwork project image">
+          <div class="gallery-image-wrap"><img src="gallery/hallway-before-after.jpg?v=gallery3" alt="Hallway doors frames skirting and woodwork painting project" loading="lazy"><span class="view-badge">View full image ↗</span></div>
+          <div class="gallery-copy"><h2>Hallway &amp; woodwork</h2><p>Walls, doors, frames, architraves and skirting finished as one coordinated space.</p></div>
+        </button>
+      </article>
 
-  <section class="answer-section gallery-foot">
-    <h2>Painting details</h2>
-    <p>Walls and ceilings are only part of the finish. Coving, cornices, doors, frames, architraves, skirting boards and other painted woodwork can make a major difference to how complete a room feels.</p>
-  </section>
+      <article class="gallery-card" data-category="interior" data-title="Bedroom" data-detail="Walls, ceiling and trim">
+        <button class="gallery-open" type="button" aria-label="Open bedroom project image">
+          <div class="gallery-image-wrap"><img src="gallery/bedroom-before-after.jpg?v=gallery3" alt="Bedroom painting project in Limerick" loading="lazy"><span class="view-badge">View full image ↗</span></div>
+          <div class="gallery-copy"><h2>Bedroom</h2><p>A restrained colour change with consistent walls, ceiling and trim.</p></div>
+        </button>
+      </article>
+    </section>
+
+    <p class="gallery-note">Have a similar room or exterior in mind? Send a few photos through the contact page and AS Painting can get an early sense of the job before arranging a visit.</p>
+  </div>
 </article></main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Project image viewer" aria-hidden="true">
+  <div class="lightbox-panel">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image viewer">×</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous project">‹</button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next project">›</button>
+    <div class="lightbox-media"><img id="lightboxImage" src="" alt=""></div>
+    <div class="lightbox-info">
+      <div><div class="lightbox-title" id="lightboxTitle"></div><div class="lightbox-sub" id="lightboxDetail"></div></div>
+      <div class="lightbox-sub" id="lightboxCounter"></div>
+    </div>
+  </div>
+</div>
+
 <script src="./app.js?v=7"></script>
+<script>
+(() => {
+  const cards = [...document.querySelectorAll('.gallery-card')];
+  const filters = [...document.querySelectorAll('.filter-btn')];
+  const count = document.getElementById('visibleCount');
+  const lightbox = document.getElementById('lightbox');
+  const image = document.getElementById('lightboxImage');
+  const title = document.getElementById('lightboxTitle');
+  const detail = document.getElementById('lightboxDetail');
+  const counter = document.getElementById('lightboxCounter');
+  const closeBtn = document.getElementById('lightboxClose');
+  const prevBtn = document.getElementById('lightboxPrev');
+  const nextBtn = document.getElementById('lightboxNext');
+  let activeCards = cards;
+  let currentIndex = 0;
+  let lastTrigger = null;
+
+  function applyFilter(filter) {
+    activeCards = cards.filter(card => filter === 'all' || card.dataset.category.split(' ').includes(filter));
+    cards.forEach(card => { card.hidden = !activeCards.includes(card); });
+    count.textContent = activeCards.length;
+    filters.forEach(btn => {
+      const active = btn.dataset.filter === filter;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+  }
+
+  filters.forEach(btn => btn.addEventListener('click', () => applyFilter(btn.dataset.filter)));
+
+  function show(index) {
+    if (!activeCards.length) return;
+    currentIndex = (index + activeCards.length) % activeCards.length;
+    const card = activeCards[currentIndex];
+    const source = card.querySelector('img');
+    image.src = source.src;
+    image.alt = source.alt;
+    title.textContent = card.dataset.title;
+    detail.textContent = card.dataset.detail;
+    counter.textContent = `${currentIndex + 1} / ${activeCards.length}`;
+  }
+
+  function open(card, trigger) {
+    activeCards = cards.filter(c => !c.hidden);
+    currentIndex = Math.max(0, activeCards.indexOf(card));
+    lastTrigger = trigger;
+    show(currentIndex);
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    closeBtn.focus();
+  }
+
+  function close() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    image.src = '';
+    if (lastTrigger) lastTrigger.focus();
+  }
+
+  cards.forEach(card => {
+    const trigger = card.querySelector('.gallery-open');
+    trigger.addEventListener('click', () => open(card, trigger));
+  });
+
+  closeBtn.addEventListener('click', close);
+  prevBtn.addEventListener('click', () => show(currentIndex - 1));
+  nextBtn.addEventListener('click', () => show(currentIndex + 1));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(currentIndex - 1);
+    if (e.key === 'ArrowRight') show(currentIndex + 1);
+  });
+})();
+</script>
 </body>
 </html>
