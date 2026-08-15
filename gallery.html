@@ -3,51 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Painting Gallery Limerick | Before &amp; After | AS Painting</title>
-  <meta name="description" content="See before-and-after interior and exterior painting projects by AS Painting in Limerick. Compare the finish and open every image for a closer look.">
+  <title>Painting Gallery Limerick | Finished Work | AS Painting</title>
+  <meta name="description" content="Browse finished interior and exterior painting work from AS Painting in Limerick. Open each project photograph for a closer look.">
   <link rel="canonical" href="https://ronandownes.github.io/painting/gallery.html">
   <meta property="og:title" content="Painting Gallery Limerick | AS Painting">
-  <meta property="og:description" content="Interactive before-and-after interior and exterior painting examples in Limerick.">
+  <meta property="og:description" content="Finished interior and exterior painting examples in Limerick.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ronandownes.github.io/painting/gallery.html">
   <link rel="icon" type="image/svg+xml" href="./as-favicon.svg?v=2">
   <link rel="stylesheet" href="./styles.css?v=6">
   <style>
-    .gallery-head{max-width:860px;margin:0 auto}
+    .gallery-head{max-width:920px;margin:0 auto}
     .gallery-intro{max-width:720px}
-    .project-grid{display:grid;gap:28px;margin-top:28px}
-    .project-card{overflow:hidden;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 10px 34px rgba(20,25,30,.07)}
-    .project-copy{padding:20px 22px 16px}
-    .project-copy h2{margin:0 0 5px;font-size:1.16rem}
-    .project-copy p{margin:0!important;color:var(--muted);font-size:.9rem!important}
-    .compare{position:relative;overflow:hidden;aspect-ratio:4/3;margin:0;background:#e9ecef;isolation:isolate;touch-action:pan-y}
-    .compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-    .compare-after{clip-path:inset(0 50% 0 0)}
-    .compare-line{position:absolute;z-index:3;top:0;bottom:0;left:50%;width:3px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.2);pointer-events:none}
-    .compare-handle{position:absolute;z-index:4;left:50%;top:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:#fff;color:#202124;display:grid;place-items:center;font-weight:900;box-shadow:0 3px 16px rgba(0,0,0,.28);pointer-events:none}
-    .compare-label{position:absolute;z-index:4;top:13px;padding:7px 10px;border-radius:999px;background:rgba(22,24,27,.78);color:#fff;font-size:.73rem;font-weight:800;letter-spacing:.04em;pointer-events:none}
-    .compare-label.before{left:13px}.compare-label.after{right:13px}
-    .compare-range{position:absolute;z-index:5;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
-    .project-actions{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 18px 18px}
-    .drag-hint{color:var(--muted);font-size:.82rem}
-    .open-project{border:1px solid var(--line);border-radius:999px;background:#202124;color:#fff;padding:9px 14px;font:inherit;font-size:.82rem;font-weight:800;cursor:pointer}
-    .open-project:hover{background:#34373b}
-    .gallery-note{margin-top:26px;padding:16px 18px;border:1px solid var(--line);border-radius:10px;background:#fafafa;color:var(--muted);font-size:.9rem}
+    .photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
+    .photo-card{overflow:hidden;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 10px 34px rgba(20,25,30,.07);transition:transform .2s ease,box-shadow .2s ease}
+    .photo-card:hover{transform:translateY(-3px);box-shadow:0 16px 42px rgba(20,25,30,.12)}
+    .photo-open{display:block;width:100%;padding:0;border:0;background:none;text-align:left;color:inherit;cursor:zoom-in}
+    .photo-frame{position:relative;overflow:hidden;aspect-ratio:4/3;background:#e9ecef}
+    .photo-frame>img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+    .photo-card:hover .photo-frame>img{transform:scale(1.025)}
+    .view-badge{position:absolute;right:13px;bottom:13px;padding:8px 11px;border-radius:999px;background:rgba(22,24,27,.84);color:#fff;font-size:.74rem;font-weight:800}
+    .photo-copy{padding:16px 17px 18px}
+    .photo-copy h2{margin:0 0 5px;font-size:1.08rem}
+    .photo-copy p{margin:0!important;color:var(--muted);font-size:.88rem!important;line-height:1.5}
+    .gallery-note{margin-top:25px;padding:16px 18px;border:1px solid var(--line);border-radius:10px;background:#fafafa;color:var(--muted);font-size:.9rem}
+
     .lightbox{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:clamp(10px,3vw,28px);background:rgba(9,11,14,.94)}
     .lightbox.open{display:flex}
-    .lightbox-panel{position:relative;width:min(1050px,100%);max-height:calc(100vh - 20px);background:#111418;border:1px solid rgba(255,255,255,.13);border-radius:14px;overflow:hidden;box-shadow:0 28px 90px rgba(0,0,0,.55)}
-    .lightbox-media{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#050607}
-    .lightbox-shot{position:relative;margin:0;background:#090b0e}
-    .lightbox-shot img{display:block;width:100%;height:min(70vh,650px);object-fit:contain}
-    .lightbox-shot figcaption{position:absolute;left:12px;top:12px;padding:7px 10px;border-radius:999px;background:rgba(20,23,27,.82);color:#fff;font-size:.74rem;font-weight:800}
+    .lightbox-panel{position:relative;width:min(960px,calc((100vh - 130px)*1.3333),100%);background:#111418;border:1px solid rgba(255,255,255,.13);border-radius:14px;overflow:hidden;box-shadow:0 28px 90px rgba(0,0,0,.55)}
+    .lightbox-media{position:relative;overflow:hidden;width:100%;aspect-ratio:4/3;background:#080a0d}
+    .lightbox-media>img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
     .lightbox-info{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:14px 18px;color:#fff}
     .lightbox-title{font-weight:800}.lightbox-sub{font-size:.82rem;color:#b8bec6;margin-top:2px}
-    .lightbox-close{position:absolute;z-index:8;top:12px;right:12px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(20,23,27,.86);color:#fff;font-size:1.45rem;cursor:pointer}
+    .lightbox-close,.lightbox-nav{position:absolute;z-index:8;border:0;background:rgba(20,23,27,.86);color:#fff;cursor:pointer}
+    .lightbox-close{top:12px;right:12px;width:44px;height:44px;border-radius:50%;font-size:1.45rem}
+    .lightbox-nav{top:50%;transform:translateY(-50%);width:46px;height:58px;border-radius:10px;font-size:1.5rem}
+    .lightbox-prev{left:12px}.lightbox-next{right:12px}
     body.modal-open{overflow:hidden}
+    @media(max-width:900px){.photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:720px){
-      .project-copy{padding:17px 17px 13px}.project-actions{padding:12px 14px 15px}.drag-hint{font-size:.76rem}
-      .lightbox-media{grid-template-columns:1fr}.lightbox-shot img{height:min(38vh,360px)}.lightbox-shot figcaption{top:8px;left:8px}
-      .lightbox-panel{max-height:calc(100vh - 16px);border-radius:10px}.lightbox-info{padding:11px 14px}
+      .photo-grid{grid-template-columns:1fr;gap:16px}.photo-card:hover{transform:none}
+      .lightbox{padding:8px}.lightbox-panel{width:100%;border-radius:10px}.lightbox-info{padding:11px 14px}.lightbox-nav{width:42px;height:52px}.lightbox-prev{left:8px}.lightbox-next{right:8px}
     }
   </style>
 </head>
@@ -68,63 +64,54 @@
 <main class="page-stage"><article class="paper"><div class="gallery-head">
   <p class="kicker">AS PAINTING · LIMERICK</p>
   <h1>Painting gallery</h1>
-  <p class="intro gallery-intro">Move the slider to compare each project before and after. Open a project to see both photographs at the best size for your screen.</p>
+  <p class="intro gallery-intro">Finished work, shown one photograph at a time. Open any project for a closer look and move through the gallery with the arrows.</p>
 
-  <section id="before-after" class="project-grid" aria-label="Before and after painting projects">
-    <article class="project-card" data-title="Living room" data-detail="Walls, ceiling, coving and woodwork">
-      <div class="project-copy"><h2>Living room</h2><p>Walls, ceiling, coving and woodwork brought together as one clean space.</p></div>
-      <figure class="compare">
-        <img class="compare-before" src="gallery/living-room-before.svg" alt="Living room before painting with tired walls and preparation marks">
-        <img class="compare-after" src="gallery/living-room-after.svg" alt="Living room after painting with freshly finished walls, ceiling and coving">
-        <span class="compare-label before">BEFORE</span><span class="compare-label after">AFTER</span><span class="compare-line"></span><span class="compare-handle" aria-hidden="true">↔</span>
-        <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Compare living room before and after painting">
-      </figure>
-      <div class="project-actions"><span class="drag-hint">Drag across the image to compare</span><button class="open-project" type="button">Open project</button></div>
+  <section id="project-photos" class="photo-grid" aria-label="Finished painting projects">
+    <article class="photo-card" data-title="Living room" data-detail="Walls, ceiling, coving and woodwork">
+      <button class="photo-open" type="button">
+        <div class="photo-frame"><img src="gallery/finished-living-room.jpg?v=1" alt="Finished living room with freshly painted walls, ceiling and coving"><span class="view-badge">Open image</span></div>
+        <div class="photo-copy"><h2>Living room</h2><p>Walls, ceiling, coving and woodwork finished as one clean space.</p></div>
+      </button>
     </article>
-
-    <article class="project-card" data-title="Exterior house painting" data-detail="Masonry, trim and entrance">
-      <div class="project-copy"><h2>Exterior house painting</h2><p>Masonry, trim and the entrance refreshed while keeping the character of the house.</p></div>
-      <figure class="compare">
-        <img class="compare-before" src="gallery/house-before.svg" alt="House exterior before painting with weathered masonry and worn trim">
-        <img class="compare-after" src="gallery/house-after.svg" alt="House exterior after painting with clean masonry, dark trim and refreshed entrance">
-        <span class="compare-label before">BEFORE</span><span class="compare-label after">AFTER</span><span class="compare-line"></span><span class="compare-handle" aria-hidden="true">↔</span>
-        <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Compare house exterior before and after painting">
-      </figure>
-      <div class="project-actions"><span class="drag-hint">Drag across the image to compare</span><button class="open-project" type="button">Open project</button></div>
+    <article class="photo-card" data-title="Exterior house painting" data-detail="Masonry, trim and entrance">
+      <button class="photo-open" type="button">
+        <div class="photo-frame"><img src="gallery/finished-exterior.jpg?v=1" alt="Finished exterior house painting with clean masonry, dark trim and refreshed entrance"><span class="view-badge">Open image</span></div>
+        <div class="photo-copy"><h2>Exterior painting</h2><p>Fresh masonry and trim while keeping the character of the house.</p></div>
+      </button>
+    </article>
+    <article class="photo-card" data-title="Bedroom" data-detail="Walls, ceiling and trim">
+      <button class="photo-open" type="button">
+        <div class="photo-frame"><img src="gallery/finished-bedroom.jpg?v=1" alt="Finished bedroom painting project"><span class="view-badge">Open image</span></div>
+        <div class="photo-copy"><h2>Bedroom</h2><p>Clean, consistent walls, ceiling and trim.</p></div>
+      </button>
     </article>
   </section>
 
-  <p id="project-photos" class="gallery-note">This gallery is ready for Ahmed’s real project photographs. New rooms, woodwork and exteriors can be added without changing the layout.</p>
+  <p class="gallery-note">Ahmed’s own project photographs can be added here one at a time as the gallery grows.</p>
 </div></article></main>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="lightboxTitle">
   <div class="lightbox-panel">
-    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close project">×</button>
-    <div class="lightbox-media">
-      <figure class="lightbox-shot"><img id="lightboxBefore" src="" alt=""><figcaption>Before</figcaption></figure>
-      <figure class="lightbox-shot"><img id="lightboxAfter" src="" alt=""><figcaption>After</figcaption></figure>
-    </div>
-    <div class="lightbox-info"><div><div class="lightbox-title" id="lightboxTitle"></div><div class="lightbox-sub" id="lightboxDetail"></div></div><div class="lightbox-sub">Press Esc to close</div></div>
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image">×</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image">‹</button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next image">›</button>
+    <div class="lightbox-media" id="lightboxMedia"><img id="lightboxImage" src="" alt=""></div>
+    <div class="lightbox-info"><div><div class="lightbox-title" id="lightboxTitle"></div><div class="lightbox-sub" id="lightboxDetail"></div></div><div class="lightbox-sub" id="lightboxCounter"></div></div>
   </div>
 </div>
 
 <script src="./app.js?v=7"></script>
 <script>
 (() => {
-  document.querySelectorAll('.compare').forEach(compare => {
-    const range=compare.querySelector('.compare-range'), after=compare.querySelector('.compare-after'), line=compare.querySelector('.compare-line'), handle=compare.querySelector('.compare-handle');
-    const update=()=>{const value=range.value;after.style.clipPath='inset(0 '+(100-value)+'% 0 0)';line.style.left=value+'%';handle.style.left=value+'%';};
-    range.addEventListener('input',update);update();
-  });
-  const box=document.getElementById('lightbox'), closeBtn=document.getElementById('lightboxClose'), before=document.getElementById('lightboxBefore'), after=document.getElementById('lightboxAfter'), title=document.getElementById('lightboxTitle'), detail=document.getElementById('lightboxDetail');
-  let last=null;
-  document.querySelectorAll('.open-project').forEach(button=>button.addEventListener('click',()=>{
-    const card=button.closest('.project-card'), beforeSource=card.querySelector('.compare-before'), afterSource=card.querySelector('.compare-after');
-    last=button;before.src=beforeSource.src;before.alt=beforeSource.alt;after.src=afterSource.src;after.alt=afterSource.alt;title.textContent=card.dataset.title;detail.textContent=card.dataset.detail;
-    box.classList.add('open');box.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');closeBtn.focus();
-  }));
+  const cards=[...document.querySelectorAll('.photo-card')], box=document.getElementById('lightbox'), media=document.getElementById('lightboxMedia'), image=document.getElementById('lightboxImage'), title=document.getElementById('lightboxTitle'), detail=document.getElementById('lightboxDetail'), counter=document.getElementById('lightboxCounter');
+  const closeBtn=document.getElementById('lightboxClose'), prevBtn=document.getElementById('lightboxPrev'), nextBtn=document.getElementById('lightboxNext');
+  let current=0,last=null;
+  function show(index){current=(index+cards.length)%cards.length;const card=cards[current],source=card.querySelector('img');image.src=source.src;image.alt=source.alt;title.textContent=card.dataset.title;detail.textContent=card.dataset.detail;counter.textContent=(current+1)+' / '+cards.length;}
+  function open(card,button){last=button;show(cards.indexOf(card));box.classList.add('open');box.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');closeBtn.focus();}
   function close(){box.classList.remove('open');box.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');if(last)last.focus();}
-  closeBtn.addEventListener('click',close);box.addEventListener('click',event=>{if(event.target===box)close();});document.addEventListener('keydown',event=>{if(event.key==='Escape'&&box.classList.contains('open'))close();});
+  cards.forEach(card=>{const button=card.querySelector('.photo-open');button.addEventListener('click',()=>open(card,button));});
+  closeBtn.addEventListener('click',close);prevBtn.addEventListener('click',()=>show(current-1));nextBtn.addEventListener('click',()=>show(current+1));box.addEventListener('click',event=>{if(event.target===box)close();});
+  document.addEventListener('keydown',event=>{if(!box.classList.contains('open'))return;if(event.key==='Escape')close();if(event.key==='ArrowLeft')show(current-1);if(event.key==='ArrowRight')show(current+1);});
 })();
 </script>
 </body>
