@@ -11,7 +11,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ronandownes.github.io/painting/">
   <link rel="icon" type="image/svg+xml" href="./as-favicon.svg?v=2">
-  <link rel="stylesheet" href="./styles.css?v=6">
+  <link rel="stylesheet" href="./styles.css?v=7">
 </head>
 <body>
 <header class="topbar">
@@ -26,16 +26,48 @@
     <div class="navitem"><a class="navlabel" href="contact.html">Contact</a></div>
   </nav>
 </header>
-<main class="page-stage"><article class="paper">
-  <p class="kicker">PAINTER &amp; DECORATOR · LIMERICK</p>
-  <h1>AS Painting</h1>
-  <p class="intro">Personal, high-quality painting and decorating for homes. Based in Caherdavin, Limerick, Ahmed is happy to travel roughly 50–60 kilometres or about one hour to work on your project.</p>
-  <blockquote class="quality-quote">“Quality remains long after cost is forgotten.”</blockquote>
-  <p class="source-note">It echoes the well-known idea often associated with Aldo Gucci: quality is remembered long after price is forgotten. The point is simple — workmanship should still feel worthwhile after the invoice is long out of mind.</p>
-  <p class="philosophy"><strong>AS Painting’s idea is simple:</strong> personal customer service and quality work. Careful preparation, correct priming and patient application create the finish that lasts.</p>
-  <p class="philosophy">Looking for a painter in Limerick for a bedroom, living room, kitchen, hallway, stairway, woodwork or exterior? Send Ahmed the location, a few photographs and a short description. You can also send a room photograph and colour preferences for a digital colour preview before painting begins.</p>
-  <div class="home-links"><a href="services.html">Painting services</a><a href="gallery.html">Gallery</a><a href="technology.html">Digital colour preview</a><a href="guidance.html">Painting guidance</a><a href="faq.html">FAQs</a><a href="https://wa.me/353857296169?text=Hello%20Ahmed%2C%20I%27m%20looking%20for%20a%20painting%20quote." class="primary-link">WhatsApp Ahmed</a><a href="tel:+353857296169" class="primary-link">Call 085 729 6169</a></div>
-</article></main>
-<script src="./app.js?v=8"></script>
+<main class="home-page">
+  <section class="home-hero" aria-labelledby="home-title">
+    <div class="hero-content">
+      <p class="hero-kicker">PAINTER &amp; DECORATOR · LIMERICK</p>
+      <h1 id="home-title">A better finish<br>for your home.</h1>
+      <p>Personal, high-quality interior and exterior painting from Ahmed, based in Caherdavin and serving Limerick and the surrounding region.</p>
+      <div class="hero-actions">
+        <a class="hero-primary" href="https://wa.me/353857296169?text=Hello%20Ahmed%2C%20I%27m%20looking%20for%20a%20painting%20quote.">Get a painting quote</a>
+        <a class="hero-secondary" href="gallery.html">View the gallery</a>
+      </div>
+    </div>
+    <a class="hero-scroll" href="#recent-work" aria-label="See recent painting work"><span>See recent work</span><span aria-hidden="true">↓</span></a>
+  </section>
+
+  <section class="home-intro" aria-labelledby="welcome-title">
+    <div>
+      <p class="kicker">PERSONAL SERVICE · CAREFUL WORK</p>
+      <h2 id="welcome-title">Painting that feels worth it long after the work is finished.</h2>
+    </div>
+    <div>
+      <p>Careful preparation, correct priming and patient application create a finish that lasts. Ahmed works directly with homeowners and keeps the process straightforward from the first call to the final check.</p>
+      <a class="text-link" href="services.html">Explore painting services <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="home-work" id="recent-work" aria-labelledby="work-title">
+    <div class="section-heading">
+      <div><p class="kicker">RECENT WORK</p><h2 id="work-title">See the difference.</h2></div>
+      <a class="text-link" href="gallery.html">Open the full gallery <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="home-gallery">
+      <a href="gallery.html" class="home-project"><img src="./gallery/projects/living-room-01-after.jpg" alt="Freshly painted living room with bright walls and dark fireplace" width="800" height="1200"><span>Living rooms</span></a>
+      <a href="gallery.html" class="home-project"><img src="./gallery/projects/stairway-01-after.jpg" alt="Bright freshly painted hallway and stairway" width="800" height="1200" loading="lazy"><span>Hallways &amp; stairs</span></a>
+      <a href="gallery.html" class="home-project"><img src="./gallery/projects/exterior-01-after.jpg" alt="Freshly painted exterior of a residential home" width="800" height="1200" loading="lazy"><span>Exterior painting</span></a>
+    </div>
+  </section>
+
+  <section class="home-quote" aria-label="Painting quote">
+    <p>“Quality remains long after cost is forgotten.”</p>
+    <a href="contact.html">Talk to Ahmed about your home <span aria-hidden="true">→</span></a>
+  </section>
+</main>
+<script src="./app.js?v=10"></script>
 </body>
 </html>
